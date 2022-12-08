@@ -1,4 +1,7 @@
-class Menu extends React.Component
+import React from 'react';
+import exists from '../../../helperFunctions';
+
+class MenuComponent extends React.Component // DOKUMENTACJA
 {
     render()
     {
@@ -17,17 +20,17 @@ class Menu extends React.Component
                 <div class="nav">
                     <div class="nav__content">
                         <ul class="nav__list">
-                            <li class={"nav__list-item " + (this.props.active_team != null ? "active-nav" : "")}><a href="/" class="hover-target">Strona
+                            <li class={"nav__list-item " + exists(this.props.active_home) ? "active-nav" : ""}><a href="/" class="hover-target">Strona
                                     główna</a></li>
-                            <li class={"nav__list-item " + (this.props.active_team != null) ? "active-nav" : ""}><a href="/team/"
+                            <li class={"nav__list-item " + exists(this.props.active_team) ? "active-nav" : ""}><a href="/team/"
                                     class="hover-target">Zespół</a></li>
-                            <li class={"nav__list-item " + (this.props.active_projects != null) ? "active-nav" : ""}><a href="/projects/"
+                            <li class={"nav__list-item " + exists(this.props.active_projects) ? "active-nav" : ""}><a href="/projects/"
                                     class="hover-target">Projekty</a></li>
-                            <li class={"nav__list-item " + (this.props.active_forstudent != null) ? "active-nav" : ""} ><a href="/forstudent/"
+                            <li class={"nav__list-item " + exists(this.props.active_forstudent) ? "active-nav" : ""}><a href="/forstudent/"
                                     class="hover-target">Dla ucznia</a></li>
-                            <li class={"nav__list-item " + (this.props.active_wifi != null ? "active-nav" : "")}><a href="/wifi/"
+                            <li class={"nav__list-item " + exists(this.props.active_wifi) ? "active-nav" : ""}><a href="/wifi/"
                                     class="hover-target">WiFI</a></li>
-                            <li class={"nav__list-item " + (this.props.active_contact != null ? "active-nav" : "")}><a href="/contact/"
+                            <li class={"nav__list-item " + exists(this.props.active_contact) ? "active-nav" : ""}><a href="/contact/"
                                     class="hover-target">Kontakt</a></li>
                         </ul>
                     </div>

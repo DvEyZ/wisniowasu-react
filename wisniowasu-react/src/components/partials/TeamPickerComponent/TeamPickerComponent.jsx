@@ -1,10 +1,12 @@
-class TeamPicker extends React.Component
+import React from 'react';
+
+class TeamPickerComponent extends React.Component
 {
     render()
     {
         return (
             <div class="teampicker">
-	            <div class="teampicker_dropdown">
+                <div class="teampicker_dropdown">
                     <button class="teampicker_dropdown_button">Zobacz SU z wybranego rocznika</button>
                     <div class="teampicker_dropdown_content">
                         <a href="/team/">2022/23</a>
@@ -14,6 +16,6 @@ class TeamPicker extends React.Component
                     </div>
                 </div>
             </div>
-        );   // do zrobienia - osobny komponent dla teamu z każdego roku.
+        );  // TODO: osobne komponenty dla teamu z każdego roku.
     }
 }
