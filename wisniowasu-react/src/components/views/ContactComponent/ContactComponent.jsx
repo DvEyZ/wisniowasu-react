@@ -1,6 +1,6 @@
 import React from 'react';
-import MenuComponent from '../../partials/MenuComponent/MenuComponent';
-import FooterComponent from '../../partials/FooterComponent/FooterComponent';
+import MenuComponent from '../../reusables/MenuComponent/MenuComponent';
+import FooterComponent from '../../reusables/FooterComponent/FooterComponent';
 
 class ContactComponent extends React.Component 
 {
@@ -8,7 +8,7 @@ class ContactComponent extends React.Component
     {
         return (
             <div class="contact">
-                <MenuComponent active_contact="true" />
+                <MenuComponent active="contact" />
                 <div class="title_box">
                     <h1 class="title_box_text">
                         KONTAKT

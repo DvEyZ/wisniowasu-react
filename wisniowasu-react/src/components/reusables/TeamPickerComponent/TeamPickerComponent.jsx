@@ -16,6 +16,6 @@ class TeamPickerComponent extends React.Component
                     </div>
                 </div>
             </div>
-        );  // TODO: osobne komponenty dla teamu z każdego roku.
+        );
     }
 }
