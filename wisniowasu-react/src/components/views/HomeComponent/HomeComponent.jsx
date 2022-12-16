@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeMinicardComponent from './HomeMinicardComponent/HomeMinicardComponent';
+import HomeButtonComponent from './HomeButtonComponent/HomeButtonComponent';
 
 class HomeComponent extends React.Component
 {
@@ -52,31 +53,36 @@ class HomeComponent extends React.Component
                 </h2>
                 <div class="pageblock-full">
                     <div class="buttonsgroup">
-                        <a class="button" href="/projects/">
-                            <div class="img_container">
-                                <img data-src="../../../img/projects/projects.jpg?size=660" alt="Projekty Wiśniowa SU" class="lazyload" />
-                            </div>
-                            <h3 class="button-text">Projekty</h3>
-                        </a>
-                        <a class="button" href="/wifi/">
-                            <div class="img_container">
-                                <img data-src="../../../img/wifi/wifi_przycisk.jpg" alt="WiFI 2021" class="lazyload" />
-                            </div>
-                            <h3 class="button-text">WiFI 2021</h3>
-                        </a>
-                        <a class="button" href="https://pasje.wisniowasu.pl/">
-                            <div class="img_container">
-                                <img data-src="../../../img/logos/konferencja.svg" alt="Konferencja Samorządów Warszawskich" class="lazyload" />
-                            </div>
-                            <h3 class="button-text">Konferencja 2020</h3>
-                        </a>
-                        { /* <a class="button" href="https://mc.wisniowasu.pl/">
-                            <div class="img_container">
-                                <img data-src="../../../img/logos/logo_cherrycraft.png?size=660" style="object-position: 50% 33%;" alt="CherryCraft: Retold" class="lazyload" />
-                            </div>
-                            <h3 class="button-text">CherryCraft: Retold</h3>
-                        </a> */ }
-
+                        <HomeButtonComponent
+                            href="/projects/"
+                            img="projects/projects.jpg?size=600"
+                            alt="Projekty Wiśniowa SU"
+                            button_text="Projekty"
+                        />
+                        <HomeButtonComponent
+                            href="/wifi/"
+                            img="wifi/wifi_przycisk.jpg"
+                            alt="WiFI 2021"
+                            button_text="WiFI 2021"
+                        />
+                        <HomeButtonComponent
+                            href="https://pasje.wisniowasu.pl/"
+                            img="logos/konferencja.svg"
+                            alt="Konferencja Samorządów Warszawskich"
+                            button_text="Konferencja 2020"
+                        />
+                        <HomeButtonComponent
+                            href="/projects/"
+                            img="projects.jpg?size=600"
+                            alt="Projekty Wiśniowa SU"
+                            button_text="projekty"
+                        />
+                        <HomeButtonComponent
+                            href="https://mc.wisniowasu.pl/"
+                            img="logos/cherrycraft.png?size=600"
+                            alt="CherryCraft: Retold"
+                            button_text="CherryCraft: Retold"
+                        />
                     </div>
                 </div>
                 <h2 class="section_topic">
