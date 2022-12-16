@@ -90,56 +90,57 @@ class HomeComponent extends React.Component
                 </h2>
                 <div class="pageblock-full">
                     <div class="cardgroup">
-                        <div class="minicard">
-                            <img class="minicard-icon lazyload" alt="Innowacja"
-                                data-src="../../../img/icons/icons8-innovation-100.png" />
-                            <h3 class="minicard-title">Innowacyjność</h3>
-                            <h3 class="minicard-text">Samorząd Wiśniowej jest samorządem chcącym wprowadzać wiele nowych rozwiązań
-                                mających na celu ułatwić funkcjonowanie społeczności. Stawiamy na proste i skuteczne rozwiązania, takie
-                                jak tablica projektów Trello, aplikacja szkoły ze wszystkimi potrzebnymi funkcjami, czy chociażby cała
-                                działalność pozaszkolna samorządu, stawiająca na rozwiązania przyszłościowe</h3>
-                        </div>
-                        <div class="minicard">
-                            <img class="minicard-icon lazyload" alt="Komunikacja"
-                                data-src="../../../img/icons/icons8-people-working-together-100.png" />
-                            <h3 class="minicard-title">Komunikacja</h3>
-                            <h3 class="minicard-text">Nasz SU jest instytucją bardzo otwartą na uczniów, którzy zawsze mogą skonsultować
-                                swoje wątpliwości, lub po prostu wyrazic swoją opinię na temat działań SU, a jego opinia nigdy nie
-                                zostanie pominięta </h3>
-                        </div>
-                        <div class="minicard">
-                            <img class="minicard-icon lazyload" alt="Kreatywność"
-                                data-src="../../../img/icons/icons8-intelligence-100.png" />
-                            <h3 class="minicard-title">Kreatywność</h3>
-                            <h3 class="minicard-text">Można powiedzieć że naszemu zespołowi bardziej brakuje ludzi, niż pomysłów. W
-                                samorządzie zawsze jest co robić, a projekty są innowacyjne i szeroko wykraczające poza działania
-                                szkolne. Nasze inicjatywy mają zasięg całej Warszawy, a rozwiązania stosowane wewnątrz są oryginalne i
-                                sprawdzają się w działaniu</h3>
-                        </div>
-                        <div class="minicard">
-                            <img class="minicard-icon lazyload" alt="Jakość" data-src="../../../img/icons/icons8-guarantee-100.png" />
-                            <h3 class="minicard-title">Jakość</h3>
-                            <h3 class="minicard-text">Nasza praca jest rzetelna, a każde przydzielone zadanie, zostanie wykonane na 101%
-                                możliwości. Nie jest to miejsce w którym rzeczy robi się "na odwal", a każdy projekt przed oddaniem musi
-                                być dopięty na ostatni guzik</h3>
-                        </div>
-                        <div class="minicard">
-                            <img class="minicard-icon lazyload" alt="Organizacja"
-                                data-src="../../../img/icons/icons8-hierarchy-100.png" />
-                            <h3 class="minicard-title">Organizacja</h3>
-                            <h3 class="minicard-text">Dzięki kompetentnemu zespołowi i odpowiedzialnemu zarządzaniu, w samorządzie nic
-                                nie dzieje się przypadkiem. Każdy ma jasno przydzielone zadanie, a każde szkolne wydarzenie ma ustalony
-                                harmonogram, w którym nie ma miejsca na przypadek</h3>
-                        </div>
-                        <div class="minicard">
-                            <img class="minicard-icon lazyload" alt="Nowoczesność"
-                                data-src="../../../img/icons/icons8-smart-card-100.png" />
-                            <h3 class="minicard-title">Nowoczesność</h3>
-                            <h3 class="minicard-text">Jako samorząd posiadamy rozbudowaną infrastrukturę IT, która umożliwia nam
-                                dynamiczne uruchamianie nowych usług dla społeczności szkolnej. Nie boimy się nowych rozwiązań. Dzięki
-                                wspraciu i zainteresowaniu społeczności szkolnej jako pierwsza szkoła w Warszawie wprowadziliśmy
-                                eLegitymacje oraz mLegitymacje. </h3>
-                        </div>
+                        <HomeMinicardComponent
+                            img="icons8-innovation-100.png"
+                            alt="Innowacja"
+                            title="Innowacyjność"
+                            text="Samorząd Wiśniowej jest samorządem chcącym wprowadzać wiele nowych rozwiązań
+                            mających na celu ułatwić funkcjonowanie społeczności. Stawiamy na proste i skuteczne rozwiązania, takie
+                            jak tablica projektów Trello, aplikacja szkoły ze wszystkimi potrzebnymi funkcjami, czy chociażby cała
+                            działalność pozaszkolna samorządu, stawiająca na rozwiązania przyszłościowe"
+                        />
+                        <HomeMinicardComponent
+                            img="icons8-people-working-together-100.png"
+                            alt="Komunikacja"
+                            title="Komunikacja"
+                            text="Nasz SU jest instytucją bardzo otwartą na uczniów, którzy zawsze mogą skonsultować
+                            swoje wątpliwości, lub po prostu wyrazic swoją opinię na temat działań SU, a jego opinia nigdy nie
+                            zostanie pominięta"
+                        />
+                        <HomeMinicardComponent
+                            img="icons8-intelligence-100.png"
+                            alt="Kreatywność"
+                            title="Kreatywność"
+                            text="Można powiedzieć że naszemu zespołowi bardziej brakuje ludzi, niż pomysłów. W
+                            samorządzie zawsze jest co robić, a projekty są innowacyjne i szeroko wykraczające poza działania
+                            szkolne. Nasze inicjatywy mają zasięg całej Warszawy, a rozwiązania stosowane wewnątrz są oryginalne i
+                            sprawdzają się w działaniu"
+                        />
+                        <HomeMinicardComponent
+                            img="icons8-guarantee-100.png"
+                            alt="Jakość"
+                            title="Jakość"
+                            text="Nasza praca jest rzetelna, a każde przydzielone zadanie, zostanie wykonane na 101%
+                            możliwości. Nie jest to miejsce w którym rzeczy robi się &quot;na odwal&quot; każdy projekt przed oddaniem musi
+                            być dopięty na ostatni guzik"
+                        />
+                        <HomeMinicardComponent
+                            img="icons8-hierarchy-100.png"
+                            alt="Organizacja"
+                            title="Organizacja"
+                            text="Dzięki kompetentnemu zespołowi i odpowiedzialnemu zarządzaniu, w samorządzie nic
+                            nie dzieje się przypadkiem. Każdy ma jasno przydzielone zadanie, a każde szkolne wydarzenie ma ustalony
+                            harmonogram, w którym nie ma miejsca na przypadek"
+                        />
+                        <HomeMinicardComponent
+                            img="icons8-smart-card-100.png"
+                            alt="Nowoczesność"
+                            title="Nowoczesność"
+                            text="Jako samorząd posiadamy rozbudowaną infrastrukturę IT, która umożliwia nam
+                            dynamiczne uruchamianie nowych usług dla społeczności szkolnej. Nie boimy się nowych rozwiązań. Dzięki
+                            wspraciu i zainteresowaniu społeczności szkolnej jako pierwsza szkoła w Warszawie wprowadziliśmy
+                            eLegitymacje oraz mLegitymacje."
+                        />
                     </div>
                 </div>
                 <h2 class="section_topic">
@@ -147,51 +148,57 @@ class HomeComponent extends React.Component
                 </h2>
                 <div class="pageblock-full">
                     <div class="cardgroup">
-                        <div class="minicard short">
-                            <img class="minicard-icon lazyload" alt="Organizacja"
-                                data-src="../../../img/icons/icons8-mind-map-100.png" />
-                            <h3 class="minicard-title">Sekcja Organizacyjna</h3>
-                            <h3 class="minicard-text">Odpowiada za organizację wydarzeń w szkole i poza nią, po cichu pociąga za sznurki
-                                wszystkiego, co na Wiśniowej wychodzi z inicjatywy uczniów.</h3>
-                        </div>
-                        {/* <div class="minicard short">
-                            <img class="minicard-icon lazyload" alt="Debaty"
-                                data-src="../../../img/icons/icons8-communication-100.png" />
-                            <h3 class="minicard-title">Sekcja Debatancka</h3>
-                            <h3 class="minicard-text">Grupa ludzi z zamiłowaniem do dyskusji, zawsze gotowa poratować dobrym argumentem.
-                                Reprezentuje szkołę w Warszawskiej Lidze Debatanckiej.</h3>
-                        </div> */}
-                        <div class="minicard short">
-                            <img class="minicard-icon lazyload" alt="Prawna"
-                                data-src="../../../img/icons/icons8-job-seeker-100.png" />
-                            <h3 class="minicard-title">Sekcja prawna</h3>
-                            <h3 class="minicard-text">Wprowadza w tajniki dobrej administracji wspierając samorząd merytorycznie poprzez
-                                negocjacje, tworzenie aktów prawnych i archiwizację wszystkich podejmowanych działań. Zapewnia
-                                pozostałym sekcjom pole do pracy.</h3>
-                        </div>
-                        <div class="minicard short">
-                            <img class="minicard-icon lazyload" alt="Technologia"
-                                data-src="../../../img/icons/icons8-maintenance-100.png" />
-                            <h3 class="minicard-title">Sekcja Techniczna</h3>
-                            <h3 class="minicard-text">Grupa miłośników technologicznych nowinek, zapewniająca naszej szkole wiele
-                                nowatorskich rozwiązań, wsparcie techniczne eventów oraz działań su w internecie poza sieciami
-                                społecznościowymi.</h3>
-                        </div>
-                        <div class="minicard short">
-                            <img class="minicard-icon lazyload" alt="Media"
-                                data-src="../../../img/icons/icons8-social-network-100.png" />
-                            <h3 class="minicard-title">Sekcja Medialna</h3>
-                            <h3 class="minicard-text">Projektuje i publikuje treści w mediach społecznościowych co pozwala na dobrą
-                                komunikacje z uczniami. Ponadto wykonują zdjęcia różnych wydarzeń odbywających się w naszej szkole.</h3>
-                        </div>
-                        <div class="minicard short">
-                            <img class="minicard-icon lazyload" alt="Sztuka"
-                                data-src="../../../img/icons/icons8-musical-notes-100.png" />
-                            <h3 class="minicard-title">Sekcja Artystyczna</h3>
-                            <h3 class="minicard-text">Sekcja zrzeszająca twórców z wielu dziedzin sztuki. Umożliwia uczniom
-                                zaprezentowanie swoich talentów oraz przeprowadza konkursy z nagrodami umożliwiając dalszy
-                                rozwój w danym kierunku</h3>
-                        </div>
+                        <HomeMinicardComponent
+                            short="true"
+                            img="icons8-mind-map-100.png"
+                            alt="Organizacja"
+                            title="Sekcja Organizacyjna"
+                            text="Odpowiada za organizację wydarzeń w szkole i poza nią, po cichu pociąga za sznurki
+                            wszystkiego, co na Wiśniowej wychodzi z inicjatywy uczniów."
+                        />
+                        { /*<HomeMinicardComponent
+                            short="true"
+                            img="icons8-mind-map-100.png"
+                            alt="Debaty"
+                            title="Sekcja Debatancka"
+                            text="Grupa ludzi z zamiłowaniem do dyskusji, zawsze gotowa poratować dobrym argumentem.
+                            Reprezentuje szkołę w Warszawskiej Lidze Debatanckiej."
+                        /> */}
+                        <HomeMinicardComponent
+                            short="true"
+                            img="icons8-job-seeker-100.png"
+                            alt="Prawna"
+                            title="Sekcja Prawna"
+                            text="Wprowadza w tajniki dobrej administracji wspierając samorząd merytorycznie poprzez
+                            negocjacje, tworzenie aktów prawnych i archiwizację wszystkich podejmowanych działań. Zapewnia
+                            pozostałym sekcjom pole do pracy."
+                        />
+                        <HomeMinicardComponent
+                            short="true"
+                            img="icons8-maintenance-100.png"
+                            alt="Technologia"
+                            title="Sekcja Techniczna"
+                            text="Grupa miłośników technologicznych nowinek, zapewniająca naszej szkole wiele
+                            nowatorskich rozwiązań, wsparcie techniczne eventów oraz działań su w internecie poza sieciami
+                            społecznościowymi."
+                        />
+                        <HomeMinicardComponent
+                            short="true"
+                            img="icons8-social-network-100.png"
+                            alt="Media"
+                            title="Sekcja Medialna"
+                            text="Projektuje i publikuje treści w mediach społecznościowych co pozwala na dobrą
+                            komunikacje z uczniami. Ponadto wykonują zdjęcia różnych wydarzeń odbywających się w naszej szkole."
+                        />
+                        <HomeMinicardComponent
+                            short="true"
+                            img="icons8-musical-notes-100.png"
+                            alt="Sztuka"
+                            title="Sekcja Artystyczna"
+                            text="Sekcja zrzeszająca twórców z wielu dziedzin sztuki. Umożliwia uczniom
+                            zaprezentowanie swoich talentów oraz przeprowadza konkursy z nagrodami umożliwiając dalszy
+                            rozwój w danym kierunku"
+                        />
                     </div>
                 </div>
             </div>
