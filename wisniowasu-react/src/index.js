@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+// import './index.css';
 import reportWebVitals from './reportWebVitals';
+
+import ContactComponent from './components/views/ContactComponent/ContactComponent';
+import ForStudentComponent from './components/views/ForStudentComponent/ForStudentComponent';
+import HomeComponent from './components/views/HomeComponent/HomeComponent';
+import ProjectsComponent from './components/views/ProjectsComponent/ProjectsComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

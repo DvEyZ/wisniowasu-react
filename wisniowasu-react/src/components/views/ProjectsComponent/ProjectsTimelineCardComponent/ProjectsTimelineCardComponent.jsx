@@ -17,7 +17,7 @@ class ProjectsTimelineCardComponent extends React.Component
                     {this.props.title}
                 </div>
                 <div class="text">
-                    {this.props.text}
+                    {this.props.children}
                 </div>
             </div>
         </div>
