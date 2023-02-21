@@ -1,6 +1,6 @@
 import React from "react";
 
-class ForStudentServiceCardComponent extends React.Component
+export class ForStudentServiceCardComponent extends React.Component
 {
     constructor(props)
     {

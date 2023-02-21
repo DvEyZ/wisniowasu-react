@@ -2,7 +2,7 @@ import React from 'react';
 import MenuComponent from '../../reusables/MenuComponent/MenuComponent';
 import FooterComponent from '../../reusables/FooterComponent/FooterComponent';
 
-class ContactComponent extends React.Component 
+export class ContactComponent extends React.Component 
 {
     render()
     {

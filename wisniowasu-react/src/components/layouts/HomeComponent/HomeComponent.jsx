@@ -2,7 +2,7 @@ import React from 'react';
 import HomeMinicardComponent from './HomeMinicardComponent/HomeMinicardComponent';
 import HomeButtonComponent from './HomeButtonComponent/HomeButtonComponent';
 
-class HomeComponent extends React.Component
+export class HomeComponent extends React.Component
 {
     render()
     {

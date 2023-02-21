@@ -1,6 +1,6 @@
 import React from 'react';
 
-class HomeMinicardComponent extends React.Component
+export class HomeMinicardComponent extends React.Component
 {
     render()
     {

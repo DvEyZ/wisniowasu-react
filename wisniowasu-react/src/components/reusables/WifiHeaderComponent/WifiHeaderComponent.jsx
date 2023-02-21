@@ -1,6 +1,6 @@
 import React from 'react';
 
-class WifiHeaderComponent extends React.Component
+export class WifiHeaderComponent extends React.Component
 {
     render()
     {

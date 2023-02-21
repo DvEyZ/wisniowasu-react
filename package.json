@@ -46,6 +46,7 @@
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^2.0.5",
+    "react-router-dom": "^6.8.1",
     "responsive-loader": "^1.2.0",
     "sass-loader": "^7.3.1",
     "sharp": "^0.23.4",

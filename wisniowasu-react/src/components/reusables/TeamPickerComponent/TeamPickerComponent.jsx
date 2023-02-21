@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TeamPickerComponent extends React.Component
+export class TeamPickerComponent extends React.Component
 {
     render()
     {

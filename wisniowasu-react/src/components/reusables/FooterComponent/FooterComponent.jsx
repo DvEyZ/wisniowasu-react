@@ -1,6 +1,6 @@
 import React from 'react';
 
-class FooterComponent extends React.Component   // DOKUMENTACJA
+export class FooterComponent extends React.Component   // DOKUMENTACJA
 {
     render()
     {

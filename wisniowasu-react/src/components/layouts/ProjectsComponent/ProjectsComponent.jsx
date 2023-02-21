@@ -1,7 +1,7 @@
 import React from 'react';
 import ProjectsTimelineCardComponent from './ProjectsTimelineCardComponent/ProjectsTimelineCardComponent';
 
-class ProjectsComponent extends React.Component
+export class ProjectsComponent extends React.Component
 {
     render()
     {

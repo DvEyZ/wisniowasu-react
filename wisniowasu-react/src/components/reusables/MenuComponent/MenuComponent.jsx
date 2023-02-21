@@ -1,6 +1,6 @@
 import React from 'react';
 
-class MenuComponent extends React.Component // DOKUMENTACJA
+export class MenuComponent extends React.Component // DOKUMENTACJA
 {
     render()
     {
@@ -25,7 +25,7 @@ class MenuComponent extends React.Component // DOKUMENTACJA
                                     class="hover-target">Zespół</a></li>
                             <li class={"nav__list-item " + this.props.active == "projects" ? "active-nav" : ""}><a href="/projects/"
                                     class="hover-target">Projekty</a></li>
-                            <li class={"nav__list-item " + this.props.active == "forstudents" ? "active-nav" : ""}><a href="/forstudent/"
+                            <li class={"nav__list-item " + this.props.active == "forstudent" ? "active-nav" : ""}><a href="/forstudent/"
                                     class="hover-target">Dla ucznia</a></li>
                             <li class={"nav__list-item " + this.props.active == "wifi" ? "active-nav" : ""}><a href="/wifi/"
                                     class="hover-target">WiFI</a></li>

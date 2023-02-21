@@ -1,6 +1,6 @@
 import React from 'react'
 
-class HomeButtonComponent extends React.Component
+export class HomeButtonComponent extends React.Component
 {
     render()
     {

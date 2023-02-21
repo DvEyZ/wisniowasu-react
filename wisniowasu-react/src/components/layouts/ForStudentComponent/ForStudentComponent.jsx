@@ -1,12 +1,15 @@
 import { React } from "react";
-import ForStudentServiceCardComponent from "./ForStudentServiceCardComponent/ForStudentServiceCardComponent"
+import ForStudentServiceCardComponent from "./ForStudentServiceCardComponent/ForStudentServiceCardComponent.jsx"
+import FooterComponent from '../../reusables/FooterComponent/FooterComponent.jsx'
+import MenuComponent from '../../reusables/MenuComponent/MenuComponent.jsx'
 
-class ForStudentComponent extends React.Component
+export class ForStudentComponent extends React.Component
 {
     render()
     {
         return (
             <div class="for_student">
+                <MenuComponent active="forstudent" />
                 <div class="title_box">
                     <h1 class="title_box_text">
                         DLA UCZNIA
@@ -62,6 +65,7 @@ class ForStudentComponent extends React.Component
                         link="https://instagram.wisniowasu.pl/"
                     />
                 </div>
+                <FooterComponent />
             </div>
         );
     }
