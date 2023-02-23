@@ -1,17 +1,17 @@
-import { React } from "react";
-import ForStudentServiceCardComponent from "./ForStudentServiceCardComponent/ForStudentServiceCardComponent.jsx"
-import FooterComponent from '../../reusables/FooterComponent/FooterComponent.jsx'
-import MenuComponent from '../../reusables/MenuComponent/MenuComponent.jsx'
+import React from "react";
+import { ForStudentServiceCardComponent } from "./ForStudentServiceCardComponent/ForStudentServiceCardComponent.jsx"
+import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx'
+import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx'
 
 export class ForStudentComponent extends React.Component
 {
     render()
     {
         return (
-            <div class="for_student">
+            <div className="for_student">
                 <MenuComponent active="forstudent" />
-                <div class="title_box">
-                    <h1 class="title_box_text">
+                <div className="title_box">
+                    <h1 className="title_box_text">
                         DLA UCZNIA
                     </h1>
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import MenuComponent from '../../reusables/MenuComponent/MenuComponent';
-import FooterComponent from '../../reusables/FooterComponent/FooterComponent';
+import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx';
+import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx';
 
 export class ContactComponent extends React.Component 
 {

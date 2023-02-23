@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectsTimelineCardComponent from './ProjectsTimelineCardComponent/ProjectsTimelineCardComponent';
+import { ProjectsTimelineCardComponent } from './ProjectsTimelineCardComponent/ProjectsTimelineCardComponent.jsx';
 
 export class ProjectsComponent extends React.Component
 {
@@ -14,7 +14,7 @@ export class ProjectsComponent extends React.Component
                     <div id="timeline_line"></div>
                     <div id="timeline_container">
                         <div class="timeline_card">
-                            
+                            {this.props.timeline_cards}
                         </div>
                     </div>
                 </div>

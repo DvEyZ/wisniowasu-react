@@ -5,11 +5,11 @@ export class HomeButtonComponent extends React.Component
     render()
     {
         return (
-            <a class="button" href={ this.props.href }>
-                <div class="img_container">
-                    <img data-src={"../../../../img/" + this.props.img } alt={this.props.alt} class="lazyload" />
+            <a className="button" href={ this.props.href }>
+                <div className="img_container">
+                    <img src={`../../../../img/${this.props.img}`} alt={this.props.alt} className="lazyload" />
                 </div>
-                <h3 class="button-text">{ this.props.button_text }</h3>
+                <h3 className="button-text">{ this.props.button_text }</h3>
             </a>
         );
     }
