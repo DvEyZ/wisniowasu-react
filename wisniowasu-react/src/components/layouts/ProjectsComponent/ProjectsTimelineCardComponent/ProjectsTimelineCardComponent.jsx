@@ -5,19 +5,19 @@ export class ProjectsTimelineCardComponent extends React.Component
     render()
     {
         return (
-            <div class="timeline_card">
-            <div class="date">
+            <div className="timeline_card">
+            <div className="date">
                 {this.props.date}
             </div>
-            <div class="container">
-                <div class="img_container">
+            <div className="container">
+                <div className="img_container">
                     <img src={"../../../img/projects/" + this.props.img} />
                 </div>
-                <div class="title">
+                <div className="title">
                     {this.props.title}
                 </div>
-                <div class="text">
-                    {this.props.description}
+                <div className="text">
+                    {this.props.text}
                 </div>
             </div>
         </div>

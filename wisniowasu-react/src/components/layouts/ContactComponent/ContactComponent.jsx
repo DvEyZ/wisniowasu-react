@@ -7,28 +7,28 @@ export class ContactComponent extends React.Component
     render()
     {
         return (
-            <div class="contact">
+            <div className="contact">
                 <MenuComponent active="contact" />
-                <div class="title_box">
-                    <h1 class="title_box_text">
+                <div className="title_box">
+                    <h1 className="title_box_text">
                         KONTAKT
                     </h1>
                 </div>
-                <div class="fullpadding" id="contact_container">
-                    <div class="smallbox slideable">
-                        <div class="data">
-                            <p class="title">Napisz maila</p>
+                <div className="fullpadding" id="contact_container">
+                    <div className="smallbox slideable">
+                        <div className="data">
+                            <p className="title">Napisz maila</p>
                             <br/>
-                            <p class="subtitle">Kontakowy adres mailowy SU</p>
+                            <p className="subtitle">Kontakowy adres mailowy SU</p>
                             <a href="mailto:su@tm1.edu.pl">kontakt@wisniowasu.pl</a>
                             <br/><br/>
-                            <p class="subtitle">Administrator IT</p>
-                            {/* Maciej Tracz */ this.props.admin_name}
+                            <p className="subtitle">Administrator IT</p>
+                            {this.props.admin_name}
                             <br/>
-                            <a href={"mailto:" + /* maciej.tracz@tm1.edu.pl */ this.props.admin_email}>{this.props.admin_email}</a>
+                            <a href={`mailto:${this.props.admin_email}`}>{this.props.admin_email}</a>
                         </div>
-                        <div class="map">
-                            <p class="title">Odwiedź nas</p>
+                        <div className="map">
+                            <p className="title">Odwiedź nas</p>
                             <br/>
                             pokój 23
                             <br/>
@@ -36,14 +36,14 @@ export class ContactComponent extends React.Component
                             <br/>
                             02-520 Warszawa
                         </div>
-                        <div class="links">
-                            <p class="title">Zobacz media</p>
-                            <a href="https://facebook.wisniowasu.pl" class="facebook-icon"></a>
-                            <a href="https://instagram.wisniowasu.pl" class="instagram-icon"></a>
-                            <a href="https://discord.wisniowasu.pl" class="discord-icon"></a>
+                        <div className="links">
+                            <p className="title">Zobacz media</p>
+                            <a href="https://facebook.wisniowasu.pl" className="facebook-icon"></a>
+                            <a href="https://instagram.wisniowasu.pl" className="instagram-icon"></a>
+                            <a href="https://discord.wisniowasu.pl" className="discord-icon"></a>
                         </div>
                     </div>
-                    <iframe class="discord slideable" src="https://discordapp.com/widget?id=497703565738115085&theme=light" width="350"
+                    <iframe className="discord slideable" src="https://discordapp.com/widget?id=497703565738115085&theme=light" width="350"
                         height="500" allowtransparency="true" frameborder="0"></iframe>
                 </div>
                 <FooterComponent />
