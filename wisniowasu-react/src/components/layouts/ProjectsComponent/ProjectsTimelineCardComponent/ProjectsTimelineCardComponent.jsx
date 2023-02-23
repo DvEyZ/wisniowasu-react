@@ -17,7 +17,7 @@ export class ProjectsTimelineCardComponent extends React.Component
                     {this.props.title}
                 </div>
                 <div class="text">
-                    {this.props.children}
+                    {this.props.description}
                 </div>
             </div>
         </div>

@@ -16,7 +16,9 @@ export default function App()
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomeComponent/>}/>
-                <Route path="forstudent" element={<ForStudentComponent/>}/>
+                <Route path="/forstudent" element={<ForStudentComponent/>}/>
+                <Route path="/projects" element={<ProjectsComponent/>}/>
+                <Route path="/contact" element={<ContactComponent/>}/>
             </Routes>
         </BrowserRouter>
     );
