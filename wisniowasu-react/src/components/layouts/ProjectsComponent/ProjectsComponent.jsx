@@ -1,5 +1,4 @@
 import React from 'react';
-import { ProjectsTimelineCardComponent } from './ProjectsTimelineCardComponent/ProjectsTimelineCardComponent.jsx';
 import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx';
 import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx';
 export class ProjectsComponent extends React.Component

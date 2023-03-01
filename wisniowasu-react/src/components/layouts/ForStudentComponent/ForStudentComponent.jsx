@@ -1,5 +1,4 @@
 import React from "react";
-import { ForStudentServiceCardComponent } from "./ForStudentServiceCardComponent/ForStudentServiceCardComponent.jsx"
 import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx'
 import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx'
 

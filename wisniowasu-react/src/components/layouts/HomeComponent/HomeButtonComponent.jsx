@@ -7,7 +7,7 @@ export class HomeButtonComponent extends React.Component
         return (
             <a className="button" href={ this.props.href }>
                 <div className="img_container">
-                    <img src={`../../../../img/${this.props.img}`} alt={this.props.alt} className="lazyload" />
+                    <img src={this.props.img} alt={this.props.alt} className="lazyload" />
                 </div>
                 <h3 className="button-text">{ this.props.button_text }</h3>
             </a>

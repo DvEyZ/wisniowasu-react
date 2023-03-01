@@ -11,7 +11,7 @@ export class ProjectsTimelineCardComponent extends React.Component
             </div>
             <div className="container">
                 <div className="img_container">
-                    <img src={"../../../img/projects/" + this.props.img} />
+                    <img src={this.props.img} />
                 </div>
                 <div className="title">
                     {this.props.title}
