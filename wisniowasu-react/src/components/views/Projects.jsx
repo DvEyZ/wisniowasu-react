@@ -5,6 +5,7 @@ const Projects = () =>
         <ProjectsComponent cards={
             [
                 <ProjectsTimelineCardComponent
+                    key={1}
                     date="listopad 2020"
                     img="../../../img/projects/wisniowa_cup_2020.jpg"
                     title="Wiśniowa Cup"
@@ -19,6 +20,7 @@ const Projects = () =>
                     przyszłość.."
                 />,
                 <ProjectsTimelineCardComponent
+                    key={2}
                     date="październik - grudzień 2020"
                     img="../../../img/projects/konkurs_artystycznej_2020.jpg"
                     title="Konkurs artystyczny"
@@ -29,6 +31,7 @@ const Projects = () =>
                     okazać wsparcie dla artystów z Wiśniowej."
                 />,
                 <ProjectsTimelineCardComponent
+                    key={3}
                     date="9 styczeń 2020"
                     img="../../../img/projects/webpage.jpg?size=660"
                     title="Strona główna SU"
@@ -39,6 +42,7 @@ const Projects = () =>
                     Stadnickiemu."
                 />,
                 <ProjectsTimelineCardComponent
+                    key={4}
                     date="grudzień 2019"
                     img="../../../img/projects/szlachetna_paczka.jpg?size=660"
                     title="Szlachetna Paczka"
@@ -46,6 +50,7 @@ const Projects = () =>
                     potrzebujących rodzin. Udało nam się zebrać prawie wszystkie produkty z listy."
                 />,
                 <ProjectsTimelineCardComponent
+                    key={5}
                     date="grudzień 2019"
                     img="../../../img/projects/statut.jpg?size=660"
                     title="Statut szkoły"
@@ -54,6 +59,7 @@ const Projects = () =>
                     możliwość korzystania z urządzeń elektronicznych na lekcji w celach dydaktycznych."
                 />,
                 <ProjectsTimelineCardComponent
+                    key={6}
                     date="13 grudnia 2019"
                     img="../../../img/projects/stanwojenny_2019.jpg?size=660"
                     title="Stan wojenny"
@@ -66,6 +72,7 @@ const Projects = () =>
                     działaniami podczas wojen, ale także tym, którzy walczyli z komunistyczną władzą."
                 />,
                 <ProjectsTimelineCardComponent
+                    key={7}
                     date="9 grudnia 2019"
                     img="../../../img/projects/feedback2.jpg?size=660"
                     title="System feedbacku"

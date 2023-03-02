@@ -1,8 +1,20 @@
 import React from 'react';
 import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx';
 import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx';
+import scrollreveal from 'scrollreveal';
+
+import './projects.scss'
+
 export class ProjectsComponent extends React.Component
 {
+    componentDidMount()
+    {
+        scrollreveal().reveal(this.cards, {
+            easing: 'ease-in-out',
+            distance: '20px',
+          });
+    }
+
     render()
     {
         return (
@@ -14,7 +26,7 @@ export class ProjectsComponent extends React.Component
                 <div className="pageblock_timeline">
                     <div id="timeline_line"></div>
                     <div id="timeline_container">
-                        <div className="timeline_card">
+                        <div className="timeline_card" ref={node => {this.cards = node}}>
                             { this.props.cards }
                         </div>
                     </div>

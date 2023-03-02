@@ -9,6 +9,7 @@ import Team from './components/views/Team';
 import Contact from './components/views/Contact'
 import Projects from './components/views/Projects';
 
+import './main.scss'
 
 const App = () =>
 {
@@ -33,3 +34,17 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+window.addEventListener('scroll', () => {
+    var scrollPosition = document.scrollingElement.scrollTop;
+    var body = document.body;
+  
+    if (scrollPosition > 170) {
+        body.classList.add('nav-bg');
+    } 
+    else {
+        if (body.classList.contains('nav-bg')) {
+            body.classList.remove('nav-bg');
+        }
+    }
+})

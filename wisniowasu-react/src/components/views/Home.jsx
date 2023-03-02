@@ -16,6 +16,7 @@ const Home = () =>
         
         values={[
             <HomeMinicardComponent
+                key={1}
                 img="../../../img/icons/icons8-innovation-100.png"
                 alt="Innowacja"
                 title="Innowacyjność"
@@ -25,6 +26,7 @@ const Home = () =>
                     działalność pozaszkolna samorządu, stawiająca na rozwiązania przyszłościowe"
             />,
             <HomeMinicardComponent
+                key={2}
                 img="../../../img/icons/icons8-people-working-together-100.png"
                 alt="Komunikacja"
                 title="Komunikacja"
@@ -33,6 +35,7 @@ const Home = () =>
                     zostanie pominięta"
             />,
             <HomeMinicardComponent
+                key={3}
                 img="../../../img/icons/icons8-intelligence-100.png"
                 alt="Kreatywność"
                 title="Kreatywność"
@@ -42,6 +45,7 @@ const Home = () =>
                     sprawdzają się w działaniu"
             />,
             <HomeMinicardComponent
+                key={4}
                 img="../../../img/icons/icons8-guarantee-100.png"
                 alt="Jakość"
                 title="Jakość"
@@ -50,6 +54,7 @@ const Home = () =>
                     być dopięty na ostatni guzik"
             />,
             <HomeMinicardComponent
+                key={5}
                 img="../../../img/icons/icons8-hierarchy-100.png"
                 alt="Organizacja"
                 title="Organizacja"
@@ -58,6 +63,7 @@ const Home = () =>
                     harmonogram, w którym nie ma miejsca na przypadek"
             />,
             <HomeMinicardComponent
+                key={6}
                 img="../../../img/icons/icons8-smart-card-100.png"
                 alt="Nowoczesność"
                 title="Nowoczesność"
@@ -65,16 +71,18 @@ const Home = () =>
                     dynamiczne uruchamianie nowych usług dla społeczności szkolnej. Nie boimy się nowych rozwiązań. Dzięki
                     wspraciu i zainteresowaniu społeczności szkolnej jako pierwsza szkoła w Warszawie wprowadziliśmy
                     eLegitymacje oraz mLegitymacje."
-                />
+            />
         ]}
         sections={[
             <HomeMinicardComponent
+                key={1}
                 img="../../../img/icons/icons8-mind-map-100.png"
                 alt="Organizacja"
                 title="Sekcja Organizacyjna"
                 text="Odpowiada za organizację wydarzeń w szkole i poza nią, po cichu pociąga za sznurki wszystkiego, co na Wiśniowej wychodzi z inicjatywy uczniów."
             />,
             /*<HomeMinicardComponent
+                key={2}
                 img="icons8-mind-map-100.png"
                 alt="Debaty"
                 title="Sekcja Debatancka"
@@ -82,18 +90,21 @@ const Home = () =>
                 Reprezentuje szkołę w Warszawskiej Lidze Debatanckiej."
             /> */
             <HomeMinicardComponent
+                key={3}
                 img="../../../img/icons/icons8-job-seeker-100.png"
                 alt="Prawna"
                 title="Sekcja Prawna"
                 text="Wprowadza w tajniki dobrej administracji wspierając samorząd merytorycznie poprzez negocjacje, tworzenie aktów prawnych i archiwizację wszystkich podejmowanych działań. Zapewnia pozostałym sekcjom pole do pracy."
             />,
             <HomeMinicardComponent
+                key={4}
                 img="../../../img/icons/icons8-maintenance-100.png"
                 alt="Technologia"
                 title="Sekcja Techniczna"
                 text="Grupa miłośników technologicznych nowinek, zapewniająca naszej szkole wiele nowatorskich rozwiązań, wsparcie techniczne eventów oraz działań su w internecie poza sieciami społecznościowymi."
             />,
             <HomeMinicardComponent
+                key={5}
                 img="../../../img/icons/icons8-social-network-100.png"
                 alt="Media"
                 title="Sekcja Medialna"
@@ -101,6 +112,7 @@ const Home = () =>
                 komunikacje z uczniami. Ponadto wykonują zdjęcia różnych wydarzeń odbywających się w naszej szkole."
             />,
             <HomeMinicardComponent
+                key={6}
                 img="../../../img/icons/icons8-musical-notes-100.png"
                 alt="Sztuka"
                 title="Sekcja Artystyczna"
@@ -109,26 +121,30 @@ const Home = () =>
         ]}
         buttons={[
             <HomeButtonComponent
+                key={1}
                 href="/projects/"
                 img="../../../img/projects/projects.jpg?size=600"
                 alt="Projekty Wiśniowa SU"
                 button_text="Projekty"
             />,
             <HomeButtonComponent
+                key={2}
                 href="/wifi/"
                 img="../../../img/wifi/wifi_przycisk.jpg"
                 alt="WiFI 2021"
                 button_text="WiFI 2021"
             />,
             <HomeButtonComponent
+                key={3}
                 href="https://pasje.wisniowasu.pl/"
                 img="../../../img/logos/konferencja.svg"
                 alt="Konferencja Samorządów Warszawskich"
                 button_text="Konferencja 2020"
             />,
             <HomeButtonComponent
+                key={4}
                 href="https://mc.wisniowasu.pl/"
-                img="../../../img/logos/cherrycraft.png?size=600"
+                img="../../../img/logos/logo_cherrycraft.png?size=600"
                 alt="CherryCraft: Retold"
                 button_text="CherryCraft: Retold"
             />

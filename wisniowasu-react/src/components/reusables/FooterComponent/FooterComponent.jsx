@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './footer.scss'
+
 export class FooterComponent extends React.Component   // DOKUMENTACJA
 {
     render()

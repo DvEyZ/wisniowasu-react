@@ -2,6 +2,7 @@ import React from 'react';
 import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx';
 import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx';
 
+import './contact.scss'
 export class ContactComponent extends React.Component 
 {
     render()
