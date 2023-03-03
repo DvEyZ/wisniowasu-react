@@ -5,11 +5,11 @@ export class TeamYearComponent extends React.Component
 {
     componentDidMount()
     {
-        scrollreveal().reveal(this.management_cards.childNodes, {
+        scrollreveal().reveal(this.management_cards, {
             easing: 'ease-in-out',
             distance: '20px',
         });
-        scrollreveal().reveal(this.section_cards.childNodes, {
+        scrollreveal().reveal(this.section_cards, {
             easing: 'ease-in-out',
             distance: '20px',
         });

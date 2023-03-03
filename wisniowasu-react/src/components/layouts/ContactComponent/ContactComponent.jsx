@@ -25,7 +25,6 @@ export class ContactComponent extends React.Component
     {
         return (
             <div className="contact">
-                <MenuComponent active="contact" />
                 <div className="title_box">
                     <h1 className="title_box_text">
                         KONTAKT

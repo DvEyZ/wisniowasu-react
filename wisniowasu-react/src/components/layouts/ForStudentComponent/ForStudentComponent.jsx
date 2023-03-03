@@ -19,7 +19,6 @@ export class ForStudentComponent extends React.Component
     {
         return (
             <div className="for_student">
-                <MenuComponent active="forstudent" />
                 <div className="title_box">
                     <h1 className="title_box_text">
                         DLA UCZNIA
@@ -28,7 +27,6 @@ export class ForStudentComponent extends React.Component
                 <div id="services_container" ref={node => {this.services = node}}>
                     {this.props.cards}
                 </div>
-                <FooterComponent />
             </div>
         );
     }

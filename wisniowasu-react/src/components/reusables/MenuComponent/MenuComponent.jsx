@@ -45,7 +45,7 @@ export class MenuComponent extends React.Component // DOKUMENTACJA
                 <div className="nav">
                     <div className="nav__content">
                         <ul className="nav__list">
-                            <li className={`nav__list-item ${this.props.active === "home" ? "active-nav" : ""}`}><a href="/" className="hover-target">Strona
+                            <li className={`nav__list-item ${this.props.active === "" ? "active-nav" : ""}`}><a href="/" className="hover-target">Strona
                                     główna</a></li>
                             <li className={`nav__list-item ${this.props.active === "team" ? "active-nav" : ""}`}><a href="/team/"
                                     className="hover-target">Zespół</a></li>
@@ -53,6 +53,8 @@ export class MenuComponent extends React.Component // DOKUMENTACJA
                                     className="hover-target">Projekty</a></li>
                             <li className={`nav__list-item ${this.props.active === "forstudent" ? "active-nav" : ""}`}><a href="/forstudent/"
                                     className="hover-target">Dla ucznia</a></li>
+                            <li className={`nav__list-item ${this.props.active === "wifi" ? "active-nav" : ""}`}><a href="/wifi/"
+                                    className="hover-target">WiFI</a></li>
                             <li className={`nav__list-item ${this.props.active === "documents" ? "active-nav" : ""}`}><a href="/documents/"
                                     className="hover-target">Dokumenty</a></li>
                             <li className={`nav__list-item ${this.props.active === "contact" ? "active-nav" : ""}`}><a href="/contact/"

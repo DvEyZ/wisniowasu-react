@@ -53,7 +53,6 @@ export class HomeComponent extends React.Component
     {
         return (
             <div id="home">
-                <MenuComponent active="home"/>
                 <div id="logo_container">
                     <div id="logo" ref={node => {this.logo = node}}></div>
                     <svg id="slide_down_icon" viewBox="0 0 247 390" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +110,6 @@ export class HomeComponent extends React.Component
                         {this.props.sections}
                     </div>
                 </div>
-                <FooterComponent/>
             </div>
         );
     }

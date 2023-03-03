@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import ForStudent from './components/views/ForStudent';
 import Home from './components/views/Home'
 import Team from './components/views/Team';
@@ -10,11 +9,14 @@ import Contact from './components/views/Contact'
 import Projects from './components/views/Projects';
 
 import './main.scss'
+import { FooterComponent } from './components/reusables/FooterComponent/FooterComponent';
+import { MenuComponent } from './components/reusables/MenuComponent/MenuComponent';
 
 const App = () =>
 {
     return (
-        <BrowserRouter>
+        <div id="app">
+            <MenuComponent active={useLocation().pathname.split('/')[1]} />
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/team/*" element={<Team/>}/>
@@ -22,7 +24,8 @@ const App = () =>
                 <Route path="/projects" element={<Projects/>}/>
                 <Route path="/contact" element={<Contact/>}/>
             </Routes>
-        </BrowserRouter>
+            <FooterComponent/>
+        </div>
     );
 }
 
@@ -30,9 +33,11 @@ export default App;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 window.addEventListener('scroll', () => {

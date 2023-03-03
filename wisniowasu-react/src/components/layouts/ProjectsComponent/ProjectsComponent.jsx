@@ -19,7 +19,6 @@ export class ProjectsComponent extends React.Component
     {
         return (
             <div className="projects">
-                <MenuComponent active="projects"/>
                 <div className="title_box">
                     <h1 className="title_box_text">PROJEKTY</h1>
                 </div>
@@ -31,7 +30,6 @@ export class ProjectsComponent extends React.Component
                         </div>
                     </div>
                 </div>
-                <FooterComponent/>
             </div>
         );
     }

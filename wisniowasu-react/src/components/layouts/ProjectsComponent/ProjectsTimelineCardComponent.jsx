@@ -38,12 +38,12 @@ export class ProjectsTimelineCardComponent extends React.Component
     render()
     {
         return (
-            <div className="timeline_card" ref={node => {this.root = node}} onClick={this.toggle}>
+            <div className="timeline_card" ref={node => {this.root = node}}>
                 <div className="date">
                     {this.props.date}
                 </div>
                 <div className={`container ${this.state.active ? 'open' : ''}`}>
-                    <div className="img_container">
+                    <div className="img_container" onClick={this.toggle}>
                         <img src={this.props.img} />
                     </div>
                     <div className="title">
