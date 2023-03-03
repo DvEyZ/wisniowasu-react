@@ -17,6 +17,13 @@ export class MenuComponent extends React.Component // DOKUMENTACJA
             if(!this.root.contains(e.target))
             this.setState({active:false});
         });
+
+        this.nav_list.childNodes.forEach((node) => {
+            if(node.firstChild.pathname == '/' && this.props.active == '')
+                node.classList.add('active-nav');
+            if(node.firstChild.pathname == `/${this.props.active}/`)
+                node.classList.add('active-nav');
+        })
     }
 
     toggle = () =>
@@ -44,20 +51,20 @@ export class MenuComponent extends React.Component // DOKUMENTACJA
                 </div>
                 <div className="nav">
                     <div className="nav__content">
-                        <ul className="nav__list">
-                            <li className={`nav__list-item ${this.props.active === "" ? "active-nav" : ""}`}><a href="/" className="hover-target">Strona
+                        <ul className="nav__list" ref={node => {this.nav_list = node}}>
+                            <li className={'nav__list-item'}><a href="/" className="hover-target">Strona
                                     główna</a></li>
-                            <li className={`nav__list-item ${this.props.active === "team" ? "active-nav" : ""}`}><a href="/team/"
+                            <li className={`nav__list-item`}><a href="/team/"
                                     className="hover-target">Zespół</a></li>
-                            <li className={`nav__list-item ${this.props.active === "projects" ? "active-nav" : ""}`}><a href="/projects/"
+                            <li className={`nav__list-item`}><a href="/projects/"
                                     className="hover-target">Projekty</a></li>
-                            <li className={`nav__list-item ${this.props.active === "forstudent" ? "active-nav" : ""}`}><a href="/forstudent/"
+                            <li className={`nav__list-item`}><a href="/forstudent/"
                                     className="hover-target">Dla ucznia</a></li>
-                            <li className={`nav__list-item ${this.props.active === "wifi" ? "active-nav" : ""}`}><a href="/wifi/"
+                            <li className={`nav__list-item`}><a href="/wifi/"
                                     className="hover-target">WiFI</a></li>
-                            <li className={`nav__list-item ${this.props.active === "documents" ? "active-nav" : ""}`}><a href="/documents/"
+                            <li className={`nav__list-item`}><a href="/documents/"
                                     className="hover-target">Dokumenty</a></li>
-                            <li className={`nav__list-item ${this.props.active === "contact" ? "active-nav" : ""}`}><a href="/contact/"
+                            <li className={`nav__list-item`}><a href="/contact/"
                                     className="hover-target">Kontakt</a></li>
                         </ul>
                     </div>
