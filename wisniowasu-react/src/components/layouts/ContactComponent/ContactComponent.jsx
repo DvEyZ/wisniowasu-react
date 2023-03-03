@@ -1,10 +1,26 @@
 import React from 'react';
 import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx';
 import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx';
+import scrollreveal from 'scrollreveal';
 
 import './contact.scss'
+
 export class ContactComponent extends React.Component 
 {
+    constructor(props)
+    {
+        super(props);
+        this.slideables = [];
+    }
+
+    componentDidMount()
+    {
+        scrollreveal().reveal(this.slideables, {
+            easing: 'ease-in-out',
+            distance: '20px',
+        });
+    }
+
     render()
     {
         return (
@@ -16,7 +32,7 @@ export class ContactComponent extends React.Component
                     </h1>
                 </div>
                 <div className="fullpadding" id="contact_container">
-                    <div className="smallbox slideable">
+                    <div className="smallbox slideable" ref={node => {this.slideables[0] = node}}>
                         <div className="data">
                             <p className="title">Napisz maila</p>
                             <br/>
@@ -45,7 +61,7 @@ export class ContactComponent extends React.Component
                         </div>
                     </div>
                     <iframe className="discord slideable" src="https://discordapp.com/widget?id=497703565738115085&theme=light" width="350"
-                        height="500" allowtransparency="true" frameborder="0"></iframe>
+                        height="500" allowtransparency="true" frameBorder="0" ref={node => {this.slideables[1] = node}}></iframe>
                 </div>
                 <FooterComponent />
             </div>

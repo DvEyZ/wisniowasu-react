@@ -9,7 +9,7 @@ export class ProjectsComponent extends React.Component
 {
     componentDidMount()
     {
-        scrollreveal().reveal(this.cards, {
+        scrollreveal().reveal(this.cards.childNodes, {
             easing: 'ease-in-out',
             distance: '20px',
           });
