@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import { WiFIMenuComponent } from "./WiFIMenuComponent";
 import { WiFIMainComponent } from './WiFIMainComponent/WiFIMainComponent';
-import { WiFIDetailsComponent } from './WiFIDetailsComponent';
+import { WiFIDetailsComponent } from './WiFIDetailsComponent/WiFIDetailsComponent';
 import { WiFIScheduleComponent } from './WiFIScheduleComponent';
 import { WiFIContactComponent } from './WiFIContactComponent';
 
