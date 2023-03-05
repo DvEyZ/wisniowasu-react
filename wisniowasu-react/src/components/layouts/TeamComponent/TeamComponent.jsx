@@ -1,7 +1,5 @@
 import React from "react";
 import { TeamPickerComponent } from './TeamPickerComponent'
-import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent'
-import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent'
 import { Routes, Route} from "react-router-dom";
 
 import './team.scss';

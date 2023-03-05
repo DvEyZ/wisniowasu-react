@@ -1,6 +1,4 @@
 import React from 'react';
-import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx';
-import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx';
 import scrollreveal from 'scrollreveal';
 
 import './contact.scss'
@@ -62,7 +60,6 @@ export class ContactComponent extends React.Component
                     <iframe className="discord slideable" src="https://discordapp.com/widget?id=497703565738115085&theme=light" width="350"
                         height="500" allowtransparency="true" frameBorder="0" ref={node => {this.slideables[1] = node}}></iframe>
                 </div>
-                <FooterComponent />
             </div>
         );
     }

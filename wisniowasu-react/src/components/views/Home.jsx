@@ -5,6 +5,7 @@ import { HomeMinicardComponent } from "../layouts/HomeComponent/HomeMinicardComp
 const Home = () =>
     <HomeComponent
         main_image="../../../img/team/2021_22/team.jpg"
+        description_image="../../../img/team/2021_22/alt_team.jpg"
         description="Jesteśmy grupą osób, które połączyła chęć zmian. Mimo różnych kompetencji i spojrzenia na świat, każdy z nas
             chce osiągnąć ten sam cel. Wykorzystując ten fakt, powstały poszczególne sekcje, pozwalające każdemu
             realizować się w zakresie, w którym czuje się pewnie i w którym się spełnia. Dzięki temu mamy realny wpływ

@@ -1,6 +1,4 @@
 import React from 'react';
-import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent.jsx';
-import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent.jsx';
 import scrollreveal from 'scrollreveal';
 
 import './projects.scss'

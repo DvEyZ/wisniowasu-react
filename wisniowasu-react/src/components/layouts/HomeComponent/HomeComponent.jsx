@@ -1,6 +1,4 @@
 import React from 'react';
-import { MenuComponent } from '../../reusables/MenuComponent/MenuComponent';
-import { FooterComponent } from '../../reusables/FooterComponent/FooterComponent';
 import VanillaTilt from 'vanilla-tilt';
 
 import './home.scss'
@@ -53,7 +51,7 @@ export class HomeComponent extends React.Component
     {
         return (
             <div id="home">
-                <div id="logo_container">
+                <div id="logo_container" style={{'$imageurl': `url('/../public/img/team/2019_20/team.jpg?size=1920')`}}>
                     <div id="logo" ref={node => {this.logo = node}}></div>
                     <svg id="slide_down_icon" viewBox="0 0 247 390" version="1.1" xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -77,6 +75,7 @@ export class HomeComponent extends React.Component
                 <div className="pageblock-full">
                     <div className="card">
                         <div className="card-image">
+                            <img src={this.props.description_image}/>
                         </div>
                         <h2 className="card-title">
                             O nas
