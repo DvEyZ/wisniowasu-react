@@ -28,8 +28,8 @@ export class TeamComponent extends React.Component
                         <TeamYearComponent url={this.state.years.reduce((l,r) => Number(l.slice(0,4)) > Number(r.slice(0,4)) ? l : r)} />
                         // Automatyczne wybieranie najnowszego teamu
                     }/>
-                    {this.state.years.map(i => 
-                        <Route path={`${i}`} element={
+                    {this.state.years.map((i, key) => 
+                        <Route path={`${i}`} key={key} element={
                             <TeamYearComponent url={i}/>}
                         />
                     )}

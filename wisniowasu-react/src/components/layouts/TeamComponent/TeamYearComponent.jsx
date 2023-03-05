@@ -12,16 +12,16 @@ export class TeamYearComponent extends React.Component
         this.state = {
             year: this.props.url.replace('-', '/'),
             management: [
-                <TeamPersonComponent
-                    key={1}
-                    photo="../../../img/team/2022_23/k_tyszkiewicz.jpg?size=400"
-                    icon="../../../img/icons/icons8-manager-100.png"
-                    name="Kornel Tyszkiewicz"
-                    role="Przewodniczący"
-                    text="Człowiek wielu talentów, filantrop, osoba nieszablonowa, wielowymiarowy, nieosiągalny dla bytów tego świata, skromny
-                    ale zarazem lubiący pokazać złoty perłowy pazur, kopalnia pomysłów, naszpikowany ekspresyjnym wyrażaniem siebie twórca."
-                />
+                {
+                    photo: "../../../img/team/2022_23/k_tyszkiewicz.jpg?size=400",
+                    icon: "../../../img/icons/icons8-manager-100.png",
+                    name: "Kornel Tyszkiewicz",
+                    role: "Przewodniczący",
+                    text: `Człowiek wielu talentów, filantrop, osoba nieszablonowa, wielowymiarowy, nieosiągalny dla bytów tego świata, skromny
+                    ale zarazem lubiący pokazać złoty perłowy pazur, kopalnia pomysłów, naszpikowany ekspresyjnym wyrażaniem siebie twórca.`
+                }
             ],
+            sections: [],
             loaded: true
         }
     }
@@ -50,12 +50,16 @@ export class TeamYearComponent extends React.Component
             <div className="fullpadding" id="teamcontainer">
                 <p className="category">Zarząd</p>
                 <div className="human-cardcontainer" ref={node => {this.management_cards = node}}>
-                    {this.state.management}
+                    {this.state.management.map((value, index) => 
+                        <TeamPersonComponent key={index} photo={value.photo} icon={value.icon} name={value.name} role={value.role} text={value.text}/>
+                    )}
                 </div>
                 <div className="spacer"></div>
                 <p className="category">Przewodniczący Sekcji</p>
                 <div className="human-cardcontainer" ref={node => {this.section_cards = node}}>
-                    {this.state.sections}
+                    {this.state.sections.map((value, index) => 
+                        <TeamPersonComponent key={index} photo={value.photo} icon={value.icon} name={value.name} role={value.role} text={value.text}/>
+                    )}
                 </div>
             </div>
         </div>

@@ -8,8 +8,8 @@ export class TeamPickerComponent extends React.Component
 	        <div className="teampicker_dropdown">
 		        <button className="teampicker_dropdown_button">Zobacz SU z wybranego rocznika</button>
 	            <div className="teampicker_dropdown_content">
-                    {this.props.years.map((i) => 
-                        <a href={`/team/${i.url}`}>{i.year}</a>
+                    {this.props.years.map((i, key) => 
+                        <a key={key} href={`/team/${i.url}`}>{i.year}</a>
                     )}
 		        </div>
 	        </div>
