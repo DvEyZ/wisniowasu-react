@@ -7,23 +7,20 @@ export class WiFIYearPickerComponent extends React.Component
         super(props);
     }
 
+    changeYear = (i) =>
+    {
+        window.location.href = `/wifi/${i}/`
+    }
+    
     render()
     {
         return(
-            <header className="wifi-header">
+            <header className="">
                 <select>
-                    {this.props.years.map((i) => {
-                        <option><a href={i.url}>{i.year}</a></option>
-                    })
-                    }
+                    {this.props.years.map((i) =>
+                        {return (<option key={i} onClick={() => {this.changeYear(i)}}>{i}</option>)}
+                    )}
                 </select>
-                <a className="wifi-header__home-button" href={`${window.location.pathname}`}></a>
-                <span className="vertical-spacer"></span>
-                <a className="wifi-header__button" href={`${window.location.pathname}/details`}>Szczegóły wydarzenia</a>
-                <span className="vertical-spacer"></span>
-                <a className="wifi-header__button" href={`${window.location.pathname}/schedule`}>Harmonogram</a>
-                <span className="vertical-spacer"></span>
-                <a className="wifi-header__button" href={`${window.location.pathname}/contact`}>Kontakt</a>
             </header>
         );
     }

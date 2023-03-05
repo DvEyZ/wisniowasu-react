@@ -7,6 +7,7 @@ import Home from './components/views/Home'
 import Team from './components/views/Team';
 import Contact from './components/views/Contact'
 import Projects from './components/views/Projects';
+import WiFI from './components/views/WiFI';
 
 import './main.scss'
 import { FooterComponent } from './components/reusables/FooterComponent/FooterComponent';
@@ -22,6 +23,7 @@ const App = () =>
                 <Route path="/team/*" element={<Team/>}/>
                 <Route path="/forstudent" element={<ForStudent/>}/>
                 <Route path="/projects" element={<Projects/>}/>
+                <Route path="/wifi/*" element={<WiFI/>}/>
                 <Route path="/contact" element={<Contact/>}/>
             </Routes>
             <FooterComponent/>
