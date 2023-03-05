@@ -1,9 +1,12 @@
 import React from "react";
-import { WiFIComponent } from "./WiFIComponent";
 import { Routes, Route } from 'react-router-dom';
 import { WiFIMenuComponent } from "./WiFIMenuComponent";
+import { WiFIMainComponent } from './WiFIMainComponent';
+import { WiFIDetailsComponent } from './WiFIDetailsComponent';
+import { WiFIScheduleComponent } from './WiFIScheduleComponent';
+import { WiFIContactComponent } from './WiFIContactComponent';
 
-export class WiFIYearComponent extends WiFIComponent
+export class WiFIYearComponent extends React.Component
 {
     render()
     {
@@ -11,10 +14,10 @@ export class WiFIYearComponent extends WiFIComponent
             <div id="wifi-year">
                 <WiFIMenuComponent year={this.props.year}/>
                 <Routes>
-                    <Route path="/" element={this.props.main}/>
-                    <Route path="details" element={this.props.details}/>
-                    <Route path="schedule" element={this.props.schedule}/>
-                    <Route path="contact" element={this.props.contact}/>
+                    <Route path="/" element={<WiFIMainComponent year={this.props.year}/>}/>
+                    <Route path="details" element={<WiFIDetailsComponent year={this.props.year}/>}/>
+                    <Route path="schedule" element={<WiFIScheduleComponent year={this.props.year}/>}/>
+                    <Route path="contact" element={<WiFIContactComponent year={this.props.year}/>}/>
                 </Routes>
             </div>
         );

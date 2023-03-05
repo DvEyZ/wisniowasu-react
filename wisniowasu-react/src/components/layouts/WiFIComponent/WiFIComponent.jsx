@@ -1,5 +1,6 @@
 import React from 'react';
 import { WiFIYearPickerComponent } from './WiFIYearPickerComponent';
+import { WiFIYearComponent } from './WiFIYearComponent';
 import { Routes, Route } from 'react-router-dom';
 
 export class WiFIComponent extends React.Component
@@ -7,21 +8,26 @@ export class WiFIComponent extends React.Component
     constructor(props)
     {
         super(props);
+
+        // Mockup values!!!
+        this.state = {
+            years: ['2021']
+        }
     }
     
     render()
     {
         return(
             <div id="wifi">
-                <div class="title_box">
-                    <h1 class="title_box_text">
+                <div className="title_box">
+                    <h1 className="title_box_text">
                         Wiśniowy Festiwal Inicjatyw
                     </h1>
                 </div>
                 <Routes>
-                    <Route path="/*" element={this.props.years.reduce((l,r) => l.props.year > r.props.year ? l : r)}/>
-                    {this.props.years.map(i => 
-                        <Route key={i.props.year} path={`${i.props.year}/*`} element={i}/>    
+                    <Route path="/*" element={<WiFIYearComponent year={this.state.years.reduce((l,r) => l > r ? l : r)}/>}/>
+                    {this.state.years.map(i => 
+                        <Route key={i} path={`${i}/*`} element={<WiFIYearComponent year={i}/>}/>    
                     )}
                 </Routes>
             </div>
