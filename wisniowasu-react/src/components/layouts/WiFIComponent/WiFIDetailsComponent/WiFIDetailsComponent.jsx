@@ -3,6 +3,8 @@ import { WiFIDetailsCardComponent } from "./WiFIDetailsCardComponent";
 
 import './details.scss';
 
+import scrollreveal from 'scrollreveal';
+
 export class WiFIDetailsComponent extends React.Component
 {
     constructor(props)
@@ -24,6 +26,14 @@ export class WiFIDetailsComponent extends React.Component
         }
     }
 
+    componentDidMount()
+    {
+        scrollreveal().reveal(this.content.childNodes, {
+            easing: 'ease-in-out',
+            distance: '20px',
+        });
+    }
+
     render()
     {
         return(
@@ -32,9 +42,11 @@ export class WiFIDetailsComponent extends React.Component
                 <div class="pageblock-full">
                     <h3 class="sub-header" style={{margin: '-20px 0 10px'}}>i ich organizatorów</h3>
                 </div>
-                {this.state.cards.map((value, key) =>
-                    <WiFIDetailsCardComponent key={key} img={value.img} caption={value.caption} title={value.title} text={value.text}/>
-                )}
+                <div ref={node => {this.content = node}}>
+                    {this.state.cards.map((value, key) =>
+                        <WiFIDetailsCardComponent key={key} img={value.img} caption={value.caption} title={value.title} text={value.text}/>
+                    )}
+                </div>
             </div>
         );
     }
