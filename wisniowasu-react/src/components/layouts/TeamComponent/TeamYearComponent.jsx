@@ -17,8 +17,7 @@ export class TeamYearComponent extends React.Component
                     icon: "../../../img/icons/icons8-manager-100.png",
                     name: "Kornel Tyszkiewicz",
                     role: "Przewodniczący",
-                    text: `Człowiek wielu talentów, filantrop, osoba nieszablonowa, wielowymiarowy, nieosiągalny dla bytów tego świata, skromny
-                    ale zarazem lubiący pokazać złoty perłowy pazur, kopalnia pomysłów, naszpikowany ekspresyjnym wyrażaniem siebie twórca.`
+                    text: `Człowiek wielu talentów, filantrop, osoba nieszablonowa, wielowymiarowy, nieosiągalny dla bytów tego świata, skromny ale zarazem lubiący pokazać złoty perłowy pazur, kopalnia pomysłów, naszpikowany ekspresyjnym wyrażaniem siebie twórca.`
                 }
             ],
             sections: [],

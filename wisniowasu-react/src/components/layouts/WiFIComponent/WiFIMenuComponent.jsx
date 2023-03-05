@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+import { WiFIYearPickerComponent } from './WiFIYearPickerComponent'
 import './wifi_header.scss';
 
 export class WiFIMenuComponent extends React.Component
@@ -7,13 +9,13 @@ export class WiFIMenuComponent extends React.Component
     {
         return(
             <div className="wifi-header">
-                <a className="wifi-header__home-button" href={`/wifi/${this.props.year}`}></a>
+                <Link className="wifi-header__home-button" to=''></Link>
                     <span className="vertical-spacer"></span>
-                    <a className="wifi-header__button" href={`/wifi/${this.props.year}/details`}>Szczegóły wydarzenia</a>
+                    <Link className="wifi-header__button" to='details'>Szczegóły wydarzenia</Link>
                     <span className="vertical-spacer"></span>
-                    <a className="wifi-header__button" href={`/wifi/${this.props.year}/schedule`}>Harmonogram</a>
+                    <Link className="wifi-header__button" to='schedule'>Harmonogram</Link>
                     <span className="vertical-spacer"></span>
-                <a className="wifi-header__button" href={`/wifi/${this.props.year}/contact`}>Kontakt</a>
+                <Link className="wifi-header__button" to='contact'>Kontakt</Link>
             </div>
         );
     }

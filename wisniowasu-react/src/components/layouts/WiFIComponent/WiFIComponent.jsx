@@ -11,19 +11,21 @@ export class WiFIComponent extends React.Component
 
         // Mockup values!!!
         this.state = {
-            years: ['2021']
+            years: ['2021'],
+            loaded: true
         }
     }
     
     render()
     {
-        return(
+        if(this.state.loaded) return(
             <div id="wifi">
                 <div className="title_box">
                     <h1 className="title_box_text">
                         Wiśniowy Festiwal Inicjatyw
                     </h1>
                 </div>
+                <WiFIYearPickerComponent years={this.state.years}/>
                 <Routes>
                     <Route path="/*" element={<WiFIYearComponent year={this.state.years.reduce((l,r) => l > r ? l : r)}/>}/>
                     {this.state.years.map(i => 

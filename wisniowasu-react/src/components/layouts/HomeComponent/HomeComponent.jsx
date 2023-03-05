@@ -57,8 +57,8 @@ export class HomeComponent extends React.Component
                     alt: "Jakość",
                     title: "Jakość",
                     text: `Nasza praca jest rzetelna, a każde przydzielone zadanie, zostanie wykonane na 101%
-                        możliwości. Nie jest to miejsce w którym rzeczy robi się &quot;na odwal&quot; każdy projekt przed oddaniem musi
-                        być dopięty na ostatni guzik`
+                        możliwości. Nie jest to miejsce w którym rzeczy robi się "na odwal", każdy projekt przed oddaniem musi
+                        być dopięty na ostatni guzik.`
                 },
                 {
                     img: "../../../img/icons/icons8-hierarchy-100.png",
@@ -83,19 +83,19 @@ export class HomeComponent extends React.Component
                     img: "../../../img/icons/icons8-mind-map-100.png",
                     alt: "Organizacja",
                     title: "Sekcja Organizacyjna",
-                    text: "Odpowiada za organizację wydarzeń w szkole i poza nią, po cichu pociąga za sznurki wszystkiego, co na Wiśniowej wychodzi z inicjatywy uczniów."
+                    text: `Odpowiada za organizację wydarzeń w szkole i poza nią, po cichu pociąga za sznurki wszystkiego, co na Wiśniowej wychodzi z inicjatywy uczniów.`
                 },
                 {
                     img: "../../../img/icons/icons8-job-seeker-100.png",
                     alt: "Prawna",
                     title: "Sekcja Prawna",
-                    text: "Wprowadza w tajniki dobrej administracji wspierając samorząd merytorycznie poprzez negocjacje, tworzenie aktów prawnych i archiwizację wszystkich podejmowanych działań. Zapewnia pozostałym sekcjom pole do pracy."
+                    text: `Wprowadza w tajniki dobrej administracji wspierając samorząd merytorycznie poprzez negocjacje, tworzenie aktów prawnych i archiwizację wszystkich podejmowanych działań. Zapewnia pozostałym sekcjom pole do pracy.`
                 },
                 {
                     img: "../../../img/icons/icons8-maintenance-100.png",
                     alt: "Technologia",
                     title: "Sekcja Techniczna",
-                    text: "Grupa miłośników technologicznych nowinek, zapewniająca naszej szkole wiele nowatorskich rozwiązań, wsparcie techniczne eventów oraz działań su w internecie poza sieciami społecznościowymi."
+                    text: `Grupa miłośników technologicznych nowinek, zapewniająca naszej szkole wiele nowatorskich rozwiązań, wsparcie techniczne eventów oraz działań su w internecie poza sieciami społecznościowymi.`
                 },
                 {
                     img: "../../../img/icons/icons8-social-network-100.png",
