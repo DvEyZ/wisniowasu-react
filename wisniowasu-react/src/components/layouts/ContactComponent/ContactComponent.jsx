@@ -9,6 +9,13 @@ export class ContactComponent extends React.Component
     {
         super(props);
         this.slideables = [];
+
+        // Mockup values!!!
+        this.state = {
+            admin_name: 'Maciej Tracz',
+            admin_email: 'maciej.tracz@tm1.edu.pl',
+            loaded: true
+        }
     }
 
     componentDidMount()
@@ -21,7 +28,7 @@ export class ContactComponent extends React.Component
 
     render()
     {
-        return (
+        if(this.state.loaded) return (
             <div className="contact">
                 <div className="title_box">
                     <h1 className="title_box_text">
@@ -37,9 +44,9 @@ export class ContactComponent extends React.Component
                             <a href="mailto:su@tm1.edu.pl">kontakt@wisniowasu.pl</a>
                             <br/><br/>
                             <p className="subtitle">Administrator IT</p>
-                            {this.props.admin_name}
+                            {this.state.admin_name}
                             <br/>
-                            <a href={`mailto:${this.props.admin_email}`}>{this.props.admin_email}</a>
+                            <a href={`mailto:${this.state.admin_email}`}>{this.state.admin_email}</a>
                         </div>
                         <div className="map">
                             <p className="title">Odwiedź nas</p>

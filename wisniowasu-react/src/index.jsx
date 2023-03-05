@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import ForStudent from './components/views/ForStudent';
-import Home from './components/views/Home'
-import Team from './components/views/Team';
-import Contact from './components/views/Contact'
-import Projects from './components/views/Projects';
-import WiFI from './components/views/WiFI';
-
 import './main.scss'
 import { FooterComponent } from './components/reusables/FooterComponent/FooterComponent';
 import { MenuComponent } from './components/reusables/MenuComponent/MenuComponent';
+
+import { ContactComponent } from './components/layouts/ContactComponent/ContactComponent';
+import { ForStudentComponent } from './components/layouts/ForStudentComponent/ForStudentComponent'
+import { HomeComponent } from './components/layouts/HomeComponent/HomeComponent';
+import { ProjectsComponent } from './components/layouts/ProjectsComponent/ProjectsComponent';
+import { TeamComponent } from './components/layouts/TeamComponent/TeamComponent';
+import { WiFIComponent } from './components/layouts/WiFIComponent/WiFIComponent';
 
 const App = () =>
 {
@@ -19,12 +19,12 @@ const App = () =>
         <div id="app">
             <MenuComponent active={useLocation().pathname.split('/')[1]} />
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/team/*" element={<Team/>}/>
-                <Route path="/forstudent" element={<ForStudent/>}/>
-                <Route path="/projects" element={<Projects/>}/>
-                <Route path="/wifi/*" element={<WiFI/>}/>
-                <Route path="/contact" element={<Contact/>}/>
+                <Route path="/" element={<HomeComponent/>}/>
+                <Route path="/team/*" element={<TeamComponent/>}/>
+                <Route path="/forstudent" element={<ForStudentComponent/>}/>
+                <Route path="/projects" element={<ProjectsComponent/>}/>
+                <Route path="/wifi/*" element={<WiFIComponent/>}/>
+                <Route path="/contact" element={<ContactComponent/>}/>
             </Routes>
             <FooterComponent/>
         </div>

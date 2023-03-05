@@ -13,7 +13,11 @@ export class WiFIComponent extends React.Component
     {
         return(
             <div id="wifi">
-                <WiFIYearPickerComponent years={this.props.years.map(i => {return i.props.year })}/>
+                <div class="title_box">
+                    <h1 class="title_box_text">
+                        Wiśniowy Festiwal Inicjatyw
+                    </h1>
+                </div>
                 <Routes>
                     <Route path="/*" element={this.props.years.reduce((l,r) => l.props.year > r.props.year ? l : r)}/>
                     {this.props.years.map(i => 

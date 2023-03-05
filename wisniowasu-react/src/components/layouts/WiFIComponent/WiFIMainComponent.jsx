@@ -1,5 +1,7 @@
 import React from "react";
 
+import './wifi.scss';
+
 export class WiFIMainComponent extends React.Component
 {
     render()
@@ -10,7 +12,7 @@ export class WiFIMainComponent extends React.Component
                     <div className="pageblock-full" id="description-container">
                         <div className="minicard" id="wifi_description">
                             <img className="minicard-icon lazyload" id="wifi-logo" alt={this.props.logo_alt}
-                                src={this.props.logo_link} />
+                                src={this.props.logo} />
                             <h3 className="minicard-title" id="wifi_description_title">Wiśniowy Festiwal Inicjatyw</h3>
                             <h3 className="minicard-text">{this.description}
                             </h3>
