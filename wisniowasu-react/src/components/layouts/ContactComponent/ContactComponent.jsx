@@ -21,11 +21,6 @@ export class ContactComponent extends React.Component
 
     componentDidMount()
     {
-        scrollreveal().reveal(this.slideables, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
-
         fetch(`${cms}/api/contact`).then(
             res => {res.json().then(
                 value => {
@@ -36,7 +31,12 @@ export class ContactComponent extends React.Component
                     })
                 }
             )}
-        )
+        );
+
+        scrollreveal().reveal(this.slideables, {
+            easing: 'ease-in-out',
+            distance: '20px',
+        });
     }
 
     render()
