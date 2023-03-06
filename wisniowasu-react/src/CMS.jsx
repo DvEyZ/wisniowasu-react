@@ -1,0 +1,1 @@
+export const cms = 'http://localhost:1337';

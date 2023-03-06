@@ -1,6 +1,8 @@
 import React from 'react';
 import scrollreveal from 'scrollreveal';
 
+import { cms } from '../../../CMS';
+
 import './contact.scss'
 
 export class ContactComponent extends React.Component 
@@ -10,11 +12,10 @@ export class ContactComponent extends React.Component
         super(props);
         this.slideables = [];
 
-        // Mockup values!!!
         this.state = {
-            admin_name: 'Maciej Tracz',
-            admin_email: 'maciej.tracz@tm1.edu.pl',
-            loaded: true
+            admin_name: undefined,
+            admin_email: undefined,
+            loaded: false
         }
     }
 
@@ -24,11 +25,23 @@ export class ContactComponent extends React.Component
             easing: 'ease-in-out',
             distance: '20px',
         });
+
+        fetch(`${cms}/api/contact`).then(
+            res => {res.json().then(
+                value => {
+                    this.setState({
+                        admin_name: value.data.attributes.admin_name,
+                        admin_email: value.data.attributes.admin_email,
+                        loaded: true
+                    })
+                }
+            )}
+        )
     }
 
     render()
     {
-        if(this.state.loaded) return (
+        return (
             <div className="contact">
                 <div className="title_box">
                     <h1 className="title_box_text">
