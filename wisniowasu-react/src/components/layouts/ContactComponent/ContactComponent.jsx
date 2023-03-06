@@ -15,7 +15,7 @@ export class ContactComponent extends React.Component
         this.state = {
             admin_name: undefined,
             admin_email: undefined,
-            loaded: false
+            error: false
         }
     }
 
@@ -27,12 +27,12 @@ export class ContactComponent extends React.Component
                     this.setState({
                         admin_name: value.data.attributes.admin_name,
                         admin_email: value.data.attributes.admin_email,
-                        loaded: true
+                        error: false
                     })
                 }
-            )}
-        );
-        
+            ).catch((e) => this.setState({error: e}))}
+        ).catch((e) => this.setState({error: e}));
+
         scrollreveal().reveal(this.slideables, {
             easing: 'ease-in-out',
             distance: '20px',
@@ -41,7 +41,7 @@ export class ContactComponent extends React.Component
 
     render()
     {
-        return (
+        if(!this.state.error) return (
             <div className="contact">
                 <div className="title_box">
                     <h1 className="title_box_text">
