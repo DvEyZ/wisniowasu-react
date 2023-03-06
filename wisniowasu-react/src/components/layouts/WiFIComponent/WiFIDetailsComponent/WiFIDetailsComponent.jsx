@@ -38,9 +38,9 @@ export class WiFIDetailsComponent extends React.Component
     {
         return(
             <div>
-                <h2 class="section_topic alt-mobile-anim">Poznaj listę atrakcji</h2>
-                <div class="pageblock-full">
-                    <h3 class="sub-header" style={{margin: '-20px 0 10px'}}>i ich organizatorów</h3>
+                <h2 className="section_topic alt-mobile-anim">Poznaj listę atrakcji</h2>
+                <div className="pageblock-full">
+                    <h3 className="sub-header" style={{margin: '-20px 0 10px'}}>i ich organizatorów</h3>
                 </div>
                 <div ref={node => {this.content = node}}>
                     {this.state.cards.map((value, key) =>

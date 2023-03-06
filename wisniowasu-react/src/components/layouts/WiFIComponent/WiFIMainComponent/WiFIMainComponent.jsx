@@ -115,7 +115,12 @@ export class WiFIMainComponent extends React.Component
             distance: '20px',
         });
         this.count();
-        setInterval(() => {this.count()}, 1000);
+        this.interval = setInterval(() => {this.count()}, 1000);
+    }
+
+    componentWillUnmount()
+    {
+        clearInterval(this.interval);
     }
 
     render()

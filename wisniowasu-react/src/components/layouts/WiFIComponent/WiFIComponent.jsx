@@ -25,13 +25,13 @@ export class WiFIComponent extends React.Component
                         Wiśniowy Festiwal Inicjatyw
                     </h1>
                 </div>
-                <WiFIYearPickerComponent years={this.state.years}/>
                 <Routes>
                     <Route path="/*" element={<WiFIYearComponent year={this.state.years.reduce((l,r) => l > r ? l : r)}/>}/>
                     {this.state.years.map(i => 
                         <Route key={i} path={`${i}/*`} element={<WiFIYearComponent year={i}/>}/>    
                     )}
                 </Routes>
+                <WiFIYearPickerComponent years={this.state.years}/>
             </div>
         );
     }
