@@ -1,7 +1,7 @@
 import React from "react";
 import scrollreveal from "scrollreveal";
 import { TeamPersonComponent } from './TeamPersonComponent';
-
+import { cms } from "../../../CMS";
 export class TeamYearComponent extends React.Component
 {
     constructor(props)
@@ -11,22 +11,52 @@ export class TeamYearComponent extends React.Component
         // Mockup values!!!
         this.state = {
             year: this.props.url.replace('-', '/'),
-            management: [
-                {
-                    photo: "../../../img/team/2022_23/k_tyszkiewicz.jpg?size=400",
-                    icon: "../../../img/icons/icons8-manager-100.png",
-                    name: "Kornel Tyszkiewicz",
-                    role: "Przewodniczący",
-                    text: `Człowiek wielu talentów, filantrop, osoba nieszablonowa, wielowymiarowy, nieosiągalny dla bytów tego świata, skromny ale zarazem lubiący pokazać złoty perłowy pazur, kopalnia pomysłów, naszpikowany ekspresyjnym wyrażaniem siebie twórca.`
-                }
-            ],
+            management: [],
             sections: [],
-            loaded: true
+            loaded: false,
+            error: false
         }
     }
 
     componentDidMount()
     {
+        fetch(`${cms}/api/teams?` + new URLSearchParams({
+            'filter[year][$eq]': `${this.props.url}`,
+            'populate[0]': 'management',
+            'populate[1]': 'management.photo',
+            'populate[2]': 'management.icon',
+            'populate[3]': 'sections',
+            'populate[4]': 'sections.photo',
+            'populate[5]': 'sections.icon'
+        })).then(value => 
+            value.json().then(
+                value => {
+                    this.setState({
+                        management: value.data[0].attributes.management.map(v => {
+                            return {
+                                photo: `${cms}${v.photo.data.attributes.url}`,
+                                icon: `${cms}${v.icon.data.attributes.url}`,
+                                name: v.name,
+                                role: v.role,
+                                text: v.text
+                            }
+                        }),
+                        sections: value.data[0].attributes.sections.map(v => {
+                            return {
+                                photo: `${cms}${v.photo.data.attributes.url}`,
+                                icon: `${cms}${v.icon.data.attributes.url}`,
+                                name: v.name,
+                                role: v.role,
+                                text: v.text
+                            }
+                        }),
+                        loaded: true,
+                        error: false,
+                    });
+                }
+            ).catch(e => this.setState({error: e}))
+        ).catch(e => this.setState({error:e}));
+
         scrollreveal().reveal(this.management_cards, {
             easing: 'ease-in-out',
             distance: '20px',
@@ -39,7 +69,8 @@ export class TeamYearComponent extends React.Component
 
     render()
     {
-        if(this.state.loaded) return (
+        if(this.state.error) return (<div>Błąð: {this.state.error.toString()}</div>);
+        return (
             <div className="team_year">
                 <div className="title_box">
                 <h1 className="title_box_text">

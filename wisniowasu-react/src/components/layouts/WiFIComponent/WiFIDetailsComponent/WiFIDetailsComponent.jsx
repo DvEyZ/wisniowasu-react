@@ -5,37 +5,56 @@ import './details.scss';
 
 import scrollreveal from 'scrollreveal';
 
+import { cms } from "../../../../CMS";
+
 export class WiFIDetailsComponent extends React.Component
 {
     constructor(props)
     {
         super(props);
         
-        // Mockup values!!!
         this.state = {
-            cards: [
-                {
-                    img: "../../../img/wifi/atrakcje/strefa_minecraft_0.jpg",
-                    caption: "Zespół PERUNITE®",
-                    title: "Strefa Minecraft",
-                    text: `Własny, ogromny serwer Minecraft, z którego będzie można skorzystać podczas
-                    wydarzenia. Tworzenie go, dostarcza nam dużo wrażeń, a wspólne korzystanie w jednym pomieszczeniu dostarczy
-                    jeszcze więcej, szczególnie, że to szkoła o zacięciu informatycznym. :)`
-                }
-            ]
+            cards: [],
+            loaded: false,
+            error: false
         }
     }
 
     componentDidMount()
     {
-        scrollreveal().reveal(this.content.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
+        fetch(`${cms}/api/wifis?` + new URLSearchParams({
+            'filter[year][$eq]': `${this.props.year}`,
+            'populate[0]': 'wifi_detail',
+            'populate[1]': 'wifi_detail.cards',
+            'populate[2]': 'wifi_detail.cards.photo',
+        })).then(value => 
+            value.json().then(
+                value => {
+                    this.setState({
+                        cards: value.data[0].attributes.wifi_detail.data.attributes.cards.map((v) => {
+                            return {
+                                img: `${cms}${v.photo.data[0].attributes.url}`,
+                                caption: v.caption,
+                                title: v.title,
+                                text: v.text
+                            }
+                        }),
+                        loaded: true,
+                        error: false,
+                    });
+
+                    scrollreveal().reveal(this.content.childNodes, {
+                        easing: 'ease-in-out',
+                        distance: '20px',
+                    });
+                }
+            ).catch(e => this.setState({error: e}))
+        ).catch(e => this.setState({error:e}));
     }
 
     render()
     {
+        if(this.state.error) return(<div>Błąð: {this.state.error.toString()}</div>)
         return(
             <div>
                 <h2 className="section_topic alt-mobile-anim">Poznaj listę atrakcji</h2>

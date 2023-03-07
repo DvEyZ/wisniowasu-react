@@ -3,6 +3,8 @@ import { WiFIYearPickerComponent } from './WiFIYearPickerComponent';
 import { WiFIYearComponent } from './WiFIYearComponent';
 import { Routes, Route } from 'react-router-dom';
 
+import { cms } from '../../../CMS';
+
 export class WiFIComponent extends React.Component
 {
     constructor(props)
@@ -11,13 +13,32 @@ export class WiFIComponent extends React.Component
 
         // Mockup values!!!
         this.state = {
-            years: ['2021'],
-            loaded: true
+            years: [],
+            loaded: false,
+            error: false
         }
+    }
+
+    componentDidMount()
+    {
+        fetch(`${cms}/api/wifis`).then(value => 
+            value.json().then(
+                value => {
+                    this.setState({
+                        years: value.data.map((v) => {
+                                return v.attributes.year;
+                            }),
+                        loaded: true,
+                        error: false,
+                    });
+                }
+            ).catch(e => this.setState({error: e}))
+        ).catch(e => this.setState({error:e}));
     }
     
     render()
     {
+        if(this.state.error) return(<div>Błąd</div>)
         if(this.state.loaded) return(
             <div id="wifi">
                 <div className="title_box">

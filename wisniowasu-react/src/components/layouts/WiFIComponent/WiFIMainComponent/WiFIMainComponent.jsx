@@ -6,6 +6,7 @@ import './wifi.scss';
 import { WiFIPartnerComponent } from "./WiFIPartnerComponent";
 
 import scrollreveal from 'scrollreveal';
+import { cms } from "../../../../CMS";
 
 export class WiFIMainComponent extends React.Component
 {
@@ -14,44 +15,13 @@ export class WiFIMainComponent extends React.Component
         super(props);
 
         this.state = {
-            logo: '../../../img/logos/logo_wifi_2021_cropped.png',
-            logo_alt: 'WiFI 2021',
-            date: new Date(2021, 9, 13, 9, 30),
-            description: 'Wiśniowy Festiwal Inicjatyw to festiwal szkolny integrujący całą społeczność szkolną - uczniów, nauczycieli, dyrekcję oraz pracowników szkoły. Chcemy, aby przestrzeń szkolna kojarzyła się nie tylko z nauką, ale również z bezpiecznym miejscem, które daje możliwość rozwoju i pozyskiwania nowych doświadczeń. Chcemy połączyć zdobywanie wiedzy z zabawą i stworzyć możliwość na integrację, zacieśnianie relacji z równieśnikami oraz przestrzeń na poznawanie nowych pasji i zainteresowań.',
-            about: [
-                {
-                    title: "Problem społeczny",
-                    text: "Zdajemy sobie sprawę, jak nieodwracalne skutki społeczne mogła spowodować pandemia. Chcemy spróbować zostawić za sobą miesiące izolacji, brak możliwości spotykania się i socjalizowania z rówieśnikami i umożliwić obecnym oraz nowym uczniom szkoły jak najłatwiejszą adaptację w, mogłoby wydawać się takiej samej, a jednak całkiem innej i nowej rzeczywistości. Pragniemy, aby wrześniowy powrót do szkoły po takiej przerwie był przeprowadzony w dobrej i sprzyjającej uczniom atmosferze oraz niósł za sobą pozytywne odczucia, a nie strach i stres. "
-                },
-                {
-                    title: "Cel",
-                    text: "Chcemy zintegrować całą społeczność szkolną, w tym również dyrekcję, nauczycieli i pracowników szkoły, a także pomóc zaklimatyzować się nowym uczniom. Przestrzeń szkolna powinna być miejscem, gdzie można rozwijać się i zdobywać nowe doświadczenia, ale także poznawać nowe osoby tworząc niezapomniane wspomnienia"
-                }
-            ],
-            sponsors: [
-                {
-                    img: "../../../img/logos/sii4.png",
-                    link: "https://sii.pl/",
-                    alt: "Sii"
-                }
-            ],
-            partners: [
-                {
-                    img: "../../../img/wifi/perunite_logo.png",
-                    alt: "Perunite",
-                    title: "Kim jest PERUNITE®?",
-                    content: `PERUNITE® to młody zespół liczący aż 30 osób, który tworzy content (tzn. serwery,
-                        modpacki, mapy, pluginy, mody itp.) w oparciu o grę Minecraft™. Ich celem jest zapewnienie
-                        satysfakcjonującej i dojrzałej rozgrywki dla graczy, przełamując tym stereotyp nieprofesjonalnego
-                        contentu w społeczności MC. Aby wyjść na przeciw oczekiwaniom odbiorców przygotowują innowacyjne narzędzia
-                        przyśpieszające i standaryzujące pracę z silnikiem MC.`,
-                    facebook: "https://www.facebook.com/perunite/",
-                    discord: "https://discord.gg/Cbzs2JXw2h",
-                    twitter: "https://twitter.com/perunite/",
-                    youtube: "https://www.youtube.com/channel/UCQmzUmkE1XEyE9biDdlt9kA/"
-                }
-            ],
-            loaded: true,
+            logo: undefined,
+            date: undefined,
+            description: undefined,
+            about: [],
+            sponsors: [],
+            partners: [],
+            loaded: false,
             error: false, 
         }
     }
@@ -104,20 +74,72 @@ export class WiFIMainComponent extends React.Component
 
     componentDidMount()
     {
-        scrollreveal().reveal(this.about_container.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
-        scrollreveal().reveal(this.sponsors_container.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
-        scrollreveal().reveal(this.partners_container.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
-        this.count();
-        this.interval = setInterval(() => {this.count()}, 1000);
+        fetch(`${cms}/api/wifis?` + new URLSearchParams({
+            'filter[year][$eq]': `${this.props.year}`,
+            'populate[0]': 'wifi_main',
+            'populate[1]': 'wifi_main.logo',
+            'populate[2]': 'wifi_main.date',
+            'populate[3]': 'wifi_main.about',
+            'populate[4]': 'wifi_main.partners',
+            'populate[5]': 'wifi_main.partners.logo',
+            'populate[6]': 'wifi_main.sponsors',
+            'populate[7]': 'wifi_main.sponsors.img'
+        })).then(value => 
+            value.json().then(
+                value => {
+                    this.setState({
+                        logo: `${cms}${value.data[0].attributes.wifi_main.data.attributes.logo.data.attributes.url}`,
+                        logo_alt: value.data[0].attributes.wifi_main.data.attributes.logo.data.attributes.alternativeText,
+                        date: new Date(value.data[0].attributes.wifi_main.data.attributes.date),
+                        description: value.data[0].attributes.wifi_main.data.attributes.description,
+                        video_link: value.data[0].attributes.wifi_main.data.attributes.video_link,
+                        about: value.data[0].attributes.wifi_main.data.attributes.about.map(v => {
+                            return {
+                                title: v.title,
+                                text: v.text
+                            }
+                        }),
+                        sponsors: value.data[0].attributes.wifi_main.data.attributes.sponsors.map(v => {
+                            return {
+                                link: v.link,
+                                img: `${cms}${v.img.data.attributes.url}`,
+                                alt: v.img.data.attributes.alternativeText
+                            }
+                        }),
+                        partners: value.data[0].attributes.wifi_main.data.attributes.partners.map(v => {
+                            return {
+                                title: v.title,
+                                content: v.content,
+                                facebook: v.facebook,
+                                twitter: v.twitter,
+                                discord: v.discord,
+                                instagram: v.instagram,
+                                youtube: v.youtube,
+                                img: `${cms}${v.logo.data.attributes.url}`,
+                                alt: v.logo.data.attributes.alternativeText
+                            }
+                        }),
+                        loaded: true,
+                        error: false,
+                    });
+                    scrollreveal().reveal(this.sponsors_container.childNodes, {
+                        easing: 'ease-in-out',
+                        distance: '20px',
+                    });
+                    scrollreveal().reveal(this.partners_container.childNodes, {
+                        easing: 'ease-in-out',
+                        distance: '20px',
+                    });
+                    scrollreveal().reveal(this.about_container.childNodes, {
+                        easing: 'ease-in-out',
+                        distance: '20px',
+                    });
+                    this.count();
+                    
+                    this.interval = setInterval(() => {this.count()}, 1000);
+                }
+            ).catch(e => this.setState({error: e}))
+        ).catch(e => this.setState({error:e}));
     }
 
     componentWillUnmount()
@@ -127,6 +149,7 @@ export class WiFIMainComponent extends React.Component
 
     render()
     {
+        if(this.state.error) return(<div>Błąd: {this.state.error.toString()}</div>)
         return(
             <div>
                 <div className="section_topic alt-mobile-anim" id="countdown" ref={node => {this.countdown = node}}></div>
@@ -143,27 +166,27 @@ export class WiFIMainComponent extends React.Component
                 <div className="section_topic">O WiFI</div>
                 <div className="pageblock-full">
                     <div className="cardgroup" id="about-container" ref={node => {this.about_container = node}}>
-                        {this.state.about.map((value, key) => 
+                        {this.state.loaded? this.state.about.map((value, key) => 
                             <WiFIMainMinicardComponent key={key} title={value.title} text={value.text}/>
-                        )}
+                        ): null}
                     </div>
                 </div>
                 <div className="section_topic">Sponsorzy</div>
                 <div className="sponsors" ref={node => {this.sponsors_container = node}}>
-                    {this.state.sponsors.map((value, key) => 
+                    {this.state.loaded? this.state.sponsors.map((value, key) => 
                         <WiFISponsorComponent key={key} img={value.img} alt={value.alt} link={value.link} /> 
-                    )}
+                    ) : null}
                 </div>
                 <p className="sponsors__disclaimer">{this.state.sponsors_disclaimer}</p>
                 <div className="section_topic">Partnerzy</div>
                 <div className="pageblock-full" ref={node => {this.partners_container = node}} style={{'flexFlow': 'row wrap', 'alignItems': 'stretch'}}>
-                    {this.state.partners.map((value, key) =>
+                    {this.state.loaded? this.state.partners.map((value, key) =>
                         <WiFIPartnerComponent key={key} img={value.img} alt={value.alt} title={value.title} content={value.content} 
                             facebook={value.facebook? value.facebook : undefined} discord={value.discord? value.discord : undefined}
                             twitter={value.twitter? value.twitter : undefined} instagram={value.instagram? value.instagram : undefined} 
                             youtube={value.youtube? value.youtube : undefined}
                         />
-                    )}
+                    ): null}
                 </div>
             </div>
         );

@@ -4,23 +4,42 @@ import { TeamYearComponent } from './TeamYearComponent';
 import { Routes, Route } from "react-router-dom";
 
 import './team.scss';
+
+import { cms } from '../../../CMS';
+
 export class TeamComponent extends React.Component
 {
     constructor(props)
     {
         super(props);
         
-        // Mockup values!!!!
         this.state = {
-            years: [
-                '2022-23',
-                '2021-22'
-            ],
-            loaded: true
+            years: [],
+            loaded: false,
+            error: false
         };
     }
+
+    componentDidMount()
+    {
+        fetch(`${cms}/api/teams`).then(value => 
+            value.json().then(
+                value => {
+                    this.setState({
+                        years: value.data.map((v) => {
+                                return v.attributes.year;
+                            }),
+                        loaded: true,
+                        error: false,
+                    });
+                }
+            ).catch(e => this.setState({error: e}))
+        ).catch(e => this.setState({error:e}));
+    }
+
     render()
     {
+        if(this.state.error) return(<div>Błąd</div>);
         if(this.state.loaded) return(
             <div id="team">
                 <Routes>

@@ -5,6 +5,8 @@ import './schedule.scss'
 
 import scrollreveal from "scrollreveal";
 
+import { cms } from "../../../../CMS";
+
 export class WiFIScheduleComponent extends React.Component
 {
     constructor(props)
@@ -12,57 +14,59 @@ export class WiFIScheduleComponent extends React.Component
         super(props);
         
         this.state = {
-            entries: [
-                {
-                    hour: '9.30',
-                    title: 'Rozpoczęcie WiFI',
-                    sections: [
-                        {
-                            title: 'Krótki wstęp',
-                            text: `Wydarzenie rozpocznie się po zebraniu się klas pierwszych, nauczycieli i
-                            pracowników na Scenie Głównej w Auli Czekoladowej na drugim piętrze naprzeciwko bufetu, przemówieniem
-                            Dyrektora oraz przewodniczącej SU.`
-                        },
-                        {
-                            title: 'Rozpoczęcie działania atrakcji',
-                            text: `Zapraszamy m.in. do strefy konsol w sali 416, strefy Minecraft w salach
-                            komputerowych na trzecim piętrze, na konkurs szachowy w sali 123, do “Chemosfery” w sali 406, do strefy
-                            gier planszowych w auli gier oraz na karaoke w sali 308 i na wiele innych atrakcji. Pełna lista stoisk
-                            dostępna będzie na plakatach rozwieszanych w budynku szkolnym oraz na stronie szkoły. Atrakcje stałe
-                            będą dostępne przez cały czas między atrakcjami planowymi.`
-                        }
-                    ]
-                },
-                {
-                    hour: '11.00',
-                    title: 'Teleturniej',
-                    sections: [
-                        {
-                            text: `Weź udział w teleturnieju wiedzy o szkole i zdobądź wspaniałe słodkie nagrody! Teleturniej odbędzie się na Scenie Głównej i potrwa około 30 minut.`
-                        },
-                    ]
-                }
-            ]
+            entries: [],
+            loaded: false,
+            error: false
         }
     }
     
     componentDidMount()
     {
-        scrollreveal().reveal(this.schedule.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
+        fetch(`${cms}/api/wifis?` + new URLSearchParams({
+            'filter[year][$eq]': `${this.props.year}`,
+            'populate[0]': 'wifi_schedule',
+            'populate[1]': 'wifi_schedule.entries',
+            'populate[2]': 'wifi_schedule.entries.sections'
+        })).then(value => 
+            value.json().then(
+                value => {
+                    this.setState({
+                        entries: value.data[0].attributes.wifi_schedule.data.attributes.entries.map((v) => {
+                            return {
+                                hour: v.hour,
+                                title: v.title,
+                                sections: v.sections.map((v) => {
+                                    return {
+                                        title: v.title,
+                                        text: v.text
+                                    }
+                                })
+                            }
+                        }),
+                        loaded: true,
+                        error: false,
+                    });
+                    scrollreveal().reveal(this.schedule.childNodes, {
+                        easing: 'ease-in-out',
+                        distance: '20px',
+                    });
+                }
+            ).catch(e => this.setState({error: e}))
+        ).catch(e => this.setState({error:e}));
     }
 
     render()
     {
+        if(this.state.error) return(<div>Błąd: {this.state.error.toString()}</div>)
         return(
             <div className="page-container">
-                <section className="schedule" ref={node => {this.schedule = node}}>
-                    <div className="vertical-line"></div>
-                    {this.state.entries.map((value, key) => 
-                        <WiFIScheduleEntryComponent key={key} hour={value.hour} title={value.title} sections={value.sections}/>
-                    )}
+                <section className="schedule">
+                    <div className="vertical-line" ref={node => {this.vl = node}}></div>
+                    <div ref={node => {this.schedule = node}}>
+                        {this.state.entries.map((value, key) => 
+                            <WiFIScheduleEntryComponent key={key} hour={value.hour} title={value.title} sections={value.sections}/>
+                        )}
+                    </div>
                 </section>
             </div>
         );
