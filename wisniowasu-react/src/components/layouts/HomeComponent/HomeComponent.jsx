@@ -7,6 +7,8 @@ import scrollreveal from 'scrollreveal';
 import { HomeMinicardComponent } from './HomeMinicardComponent';
 import { HomeButtonComponent } from './HomeButtonComponent';
 
+import { cms } from '../../../CMS';
+
 export class HomeComponent extends React.Component
 {
     constructor(props)
@@ -15,135 +17,78 @@ export class HomeComponent extends React.Component
 
         // Mockup values !!!
         this.state = {
-            main_image: '../../../img/team/2021_22/team.jpg',
-            description_image: '../../../img/team/2021_22/alt_team.jpg',
-            description: `Jesteśmy grupą osób, które połączyła chęć zmian. Mimo różnych kompetencji i spojrzenia na świat, każdy z nas
-            chce osiągnąć ten sam cel. Wykorzystując ten fakt, powstały poszczególne sekcje, pozwalające każdemu
-            realizować się w zakresie, w którym czuje się pewnie i w którym się spełnia. Dzięki temu mamy realny wpływ
-            na to, co dzieje się w szkole i sprawiamy, że jest ona miejscem, w którym potrzeby uczniów naprawdę się
-            liczą. Nie działamy jednak tylko w zakresie szkolnym, ponieważ nie lubimy ograniczeń. Prowadzimy również
-            projekty na skalę Warszawy. Zdajemy sobie sprawę, że do zmian, które chcemy wprowadzać w życie, potrzebny
-            jest zespół. Samorząd tworzą więc ci, którym zależy, by odpowiedzialnie i świadomie planować działania,
-            które udoskonalą i poprawią życie we wspólnocie, jaką jest szkoła.`,
-            values: [
-                {
-                img: "../../../img/icons/icons8-innovation-100.png",
-                alt: "Innowacja",
-                title: "Innowacyjność",
-                text: `Samorząd Wiśniowej jest samorządem chcącym wprowadzać wiele nowych rozwiązań
-                    mających na celu ułatwić funkcjonowanie społeczności. Stawiamy na proste i skuteczne rozwiązania, takie
-                    jak tablica projektów Trello, aplikacja szkoły ze wszystkimi potrzebnymi funkcjami, czy chociażby cała
-                    działalność pozaszkolna samorządu, stawiająca na rozwiązania przyszłościowe`
-                },
-                {
-                    img: "../../../img/icons/icons8-people-working-together-100.png",
-                    alt: "Komunikacja",
-                    title: "Komunikacja",
-                    text: `Nasz SU jest instytucją bardzo otwartą na uczniów, którzy zawsze mogą skonsultować
-                        swoje wątpliwości, lub po prostu wyrazic swoją opinię na temat działań SU, a jego opinia nigdy nie
-                        zostanie pominięta`
-                },
-                {
-                    img: "../../../img/icons/icons8-intelligence-100.png",
-                    alt: "Kreatywność",
-                    title: "Kreatywność",
-                    text: `Można powiedzieć że naszemu zespołowi bardziej brakuje ludzi, niż pomysłów. W
-                        samorządzie zawsze jest co robić, a projekty są innowacyjne i szeroko wykraczające poza działania
-                        szkolne. Nasze inicjatywy mają zasięg całej Warszawy, a rozwiązania stosowane wewnątrz są oryginalne i
-                        sprawdzają się w działaniu`
-                },
-                {
-                    img: "../../../img/icons/icons8-guarantee-100.png",
-                    alt: "Jakość",
-                    title: "Jakość",
-                    text: `Nasza praca jest rzetelna, a każde przydzielone zadanie, zostanie wykonane na 101%
-                        możliwości. Nie jest to miejsce w którym rzeczy robi się "na odwal", każdy projekt przed oddaniem musi
-                        być dopięty na ostatni guzik.`
-                },
-                {
-                    img: "../../../img/icons/icons8-hierarchy-100.png",
-                    alt: "Organizacja",
-                    title: "Organizacja",
-                    text: `Dzięki kompetentnemu zespołowi i odpowiedzialnemu zarządzaniu, w samorządzie nic
-                        nie dzieje się przypadkiem. Każdy ma jasno przydzielone zadanie, a każde szkolne wydarzenie ma ustalony
-                        harmonogram, w którym nie ma miejsca na przypadek`
-                },
-                {
-                    img: "../../../img/icons/icons8-smart-card-100.png",
-                    alt: "Nowoczesność",
-                    title: "Nowoczesność",
-                    text: `Jako samorząd posiadamy rozbudowaną infrastrukturę IT, która umożliwia nam
-                        dynamiczne uruchamianie nowych usług dla społeczności szkolnej. Nie boimy się nowych rozwiązań. Dzięki
-                        wspraciu i zainteresowaniu społeczności szkolnej jako pierwsza szkoła w Warszawie wprowadziliśmy
-                        eLegitymacje oraz mLegitymacje.`
-                }
-            ],
-            sections: [
-                {
-                    img: "../../../img/icons/icons8-mind-map-100.png",
-                    alt: "Organizacja",
-                    title: "Sekcja Organizacyjna",
-                    text: `Odpowiada za organizację wydarzeń w szkole i poza nią, po cichu pociąga za sznurki wszystkiego, co na Wiśniowej wychodzi z inicjatywy uczniów.`
-                },
-                {
-                    img: "../../../img/icons/icons8-job-seeker-100.png",
-                    alt: "Prawna",
-                    title: "Sekcja Prawna",
-                    text: `Wprowadza w tajniki dobrej administracji wspierając samorząd merytorycznie poprzez negocjacje, tworzenie aktów prawnych i archiwizację wszystkich podejmowanych działań. Zapewnia pozostałym sekcjom pole do pracy.`
-                },
-                {
-                    img: "../../../img/icons/icons8-maintenance-100.png",
-                    alt: "Technologia",
-                    title: "Sekcja Techniczna",
-                    text: `Grupa miłośników technologicznych nowinek, zapewniająca naszej szkole wiele nowatorskich rozwiązań, wsparcie techniczne eventów oraz działań su w internecie poza sieciami społecznościowymi.`
-                },
-                {
-                    img: "../../../img/icons/icons8-social-network-100.png",
-                    alt: "Media",
-                    title: "Sekcja Medialna",
-                    text: `Projektuje i publikuje treści w mediach społecznościowych co pozwala na dobrą
-                    komunikacje z uczniami. Ponadto wykonują zdjęcia różnych wydarzeń odbywających się w naszej szkole.`
-                },
-                {
-                    img: "../../../img/icons/icons8-musical-notes-100.png",
-                    alt: "Sztuka",
-                    title: "Sekcja Artystyczna",
-                    text: "Sekcja zrzeszająca twórców z wielu dziedzin sztuki. Umożliwia uczniom zaprezentowanie swoich talentów oraz przeprowadza konkursy z nagrodami umożliwiając dalszy rozwój w danym kierunku"
-                }
-            ],
-            buttons: [
-                {
-                    href: "/projects/",
-                    img: "../../../img/projects/projects.jpg?size=600",
-                    alt: "Projekty Wiśniowa SU",
-                    button_text: "Projekty",
-                },
-                {
-                    href: "/wifi/",
-                    img: "../../../img/wifi/wifi_przycisk.jpg",
-                    alt: "WiFI 2021",
-                    button_text: "WiFI 2021"
-                },
-                {
-                    href: "https://pasje.wisniowasu.pl/",
-                    img: "../../../img/logos/konferencja.svg",
-                    alt: "Konferencja Samorządów Warszawskich",
-                    button_text: "Konferencja 2020"
-                },
-                {
-                    href: "https://mc.wisniowasu.pl/",
-                    img: "../../../img/logos/logo_cherrycraft.png?size=600",
-                    alt: "CherryCraft: Retold",
-                    button_text: "CherryCraft: Retold"
-                }
-            ],
-            loaded: true
+            main_image: undefined,
+            description_image: undefined,
+            description: undefined,
+            values: [],
+            sections: [],
+            buttons: [],
+            loaded: false,
+            error: false
         }
-        // END
     }
 
     componentDidMount()
     {
+        fetch(`${cms}/api/home?` + new URLSearchParams({
+            'populate[0]': 'main_image', 
+            'populate[1]': 'description_image', 
+            'populate[2]': 'values', 
+            'populate[3]': 'values.image', 
+            'populate[4]': 'sections', 
+            'populate[5]': 'sections.image', 
+            'populate[6]': 'buttons',
+            'populate[7]': 'buttons.image'
+        })).then(
+            res => {res.json().then(
+                value => {
+                    this.setState({
+                        main_image: `${cms}${value.data.attributes.main_image.data.attributes.url}`,
+                        description_image: `${cms}${value.data.attributes.description_image.data.attributes.url}`,
+                        description: value.data.attributes.description,
+                        values: value.data.attributes.values.map((v) => {
+                            return {
+                                img:`${cms}${v.image.data.attributes.url}`,
+                                alt: v.image.data.attributes.alternativeText,
+                                title: v.title,
+                                text: v.text
+                            }
+                        }),
+                        sections: value.data.attributes.sections.map((v) => {
+                            return {
+                                img:`${cms}${v.image.data.attributes.url}`,
+                                alt: v.image.data.attributes.alternativeText,
+                                title: v.title,
+                                text: v.text
+                            }
+                        }),
+                        buttons: value.data.attributes.buttons.map((v) => {
+                            return {
+                                img:`${cms}${v.image.data.attributes.url}`,
+                                button_text: v.text,
+                                href: v.href
+                            }
+                        }),
+                        loaded: true,
+                        error: false
+                    });
+
+                    scrollreveal().reveal(this.buttons.childNodes, {
+                        easing: 'ease-in-out',
+                        distance: '20px',
+                    });
+                    scrollreveal().reveal(this.values.childNodes, {
+                        easing: 'ease-in-out',
+                        distance: '20px',
+                    });
+                    scrollreveal().reveal(this.sections.childNodes, {
+                        easing: 'ease-in-out',
+                        distance: '20px',
+                    });
+                }
+            ).catch((e) => this.setState({error: e}))}
+        ).catch((e) => this.setState({error: e}));
+
         VanillaTilt.init(this.logo, {
             reverse: true, // reverse the tilt direction
             max: 10, // max tilt rotation (degrees)
@@ -168,24 +113,12 @@ export class HomeComponent extends React.Component
                 }
             }
         });
-
-        scrollreveal().reveal(this.buttons.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
-        scrollreveal().reveal(this.values.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
-        scrollreveal().reveal(this.sections.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
     }
 
     render()
     {
-        if(this.state.loaded) return (
+        if(this.state.error) return(<div>{this.state.error.toString()}</div>)
+        return (
             <div id="home">
                 <div id="logo_container" style={{'$imageurl': `url('/../public/img/team/2019_20/team.jpg?size=1920')`}}>
                     <div id="logo" ref={node => {this.logo = node}}></div>

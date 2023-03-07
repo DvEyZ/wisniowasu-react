@@ -50,7 +50,9 @@ export class WiFIMainComponent extends React.Component
                     twitter: "https://twitter.com/perunite/",
                     youtube: "https://www.youtube.com/channel/UCQmzUmkE1XEyE9biDdlt9kA/"
                 }
-            ]
+            ],
+            loaded: true,
+            error: false, 
         }
     }
 
