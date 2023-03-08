@@ -21,7 +21,7 @@ export class TeamYearComponent extends React.Component
     componentDidMount()
     {
         fetch(`${cms}/api/teams?` + new URLSearchParams({
-            'filter[year][$eq]': `${this.props.url}`,
+            'filters[year][$eq]': `${this.props.url}`,
             'populate[0]': 'management',
             'populate[1]': 'management.photo',
             'populate[2]': 'management.icon',

@@ -12,6 +12,7 @@ import { HomeComponent } from './components/layouts/HomeComponent/HomeComponent'
 import { ProjectsComponent } from './components/layouts/ProjectsComponent/ProjectsComponent';
 import { TeamComponent } from './components/layouts/TeamComponent/TeamComponent';
 import { WiFIComponent } from './components/layouts/WiFIComponent/WiFIComponent';
+import { DocumentsComponent } from './components/layouts/DocumentsComponent/DocumentsComponent';
 
 const App = () =>
 {
@@ -24,6 +25,7 @@ const App = () =>
                 <Route path="/forstudent" element={<ForStudentComponent/>}/>
                 <Route path="/projects" element={<ProjectsComponent/>}/>
                 <Route path="/wifi/*" element={<WiFIComponent/>}/>
+                <Route path="/documents/*" element={<DocumentsComponent/>}/>
                 <Route path="/contact" element={<ContactComponent/>}/>
             </Routes>
             <FooterComponent/>
