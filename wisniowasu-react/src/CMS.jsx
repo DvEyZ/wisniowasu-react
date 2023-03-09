@@ -1,1 +1,1 @@
-export const cms = 'http://localhost:1337';
+export const cms = process.env.REACT_APP_CMS_URL;
