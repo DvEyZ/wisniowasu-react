@@ -34,15 +34,18 @@ export class ContactComponent extends React.Component
                         // loaded: true,
                         error: false
                     });
+
+                    if(this.state.loaded && !this.state.error)
+                    {
+                        scrollreveal().reveal(this.slideables, {
+                            easing: 'ease-in-out',
+                            distance: '20px',
+                        });
+                    }
                 }
             ).catch((e) => this.setState({error: e}))}
         ).catch((e) => this.setState({error: e}))
         .finally(() => this.setState({loaded: true}));
-    
-        scrollreveal().reveal(this.slideables.childNodes, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
     }
 
     render()

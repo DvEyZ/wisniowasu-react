@@ -56,19 +56,22 @@ export class TeamYearComponent extends React.Component
                         // loaded: true,
                         error: false,
                     });
+
+                    if(this.state.loaded && !this.state.error)
+                    {
+                        scrollreveal().reveal(this.management_cards, {
+                            easing: 'ease-in-out',
+                            distance: '20px',
+                        });
+                        scrollreveal().reveal(this.section_cards, {
+                            easing: 'ease-in-out',
+                            distance: '20px',
+                        });
+                    }
                 }
             ).catch(e => this.setState({error: e}))
         ).catch(e => this.setState({error:e}))
         .finally(() => this.setState({loaded: true}));
-
-        scrollreveal().reveal(this.management_cards, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
-        scrollreveal().reveal(this.section_cards, {
-            easing: 'ease-in-out',
-            distance: '20px',
-        });
     }
 
     render()
