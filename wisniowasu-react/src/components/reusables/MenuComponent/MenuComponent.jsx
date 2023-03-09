@@ -19,9 +19,9 @@ export class MenuComponent extends React.Component // DOKUMENTACJA
         });
 
         this.nav_list.childNodes.forEach((node) => {
-            if(node.firstChild.pathname == '/' && this.props.active == '')
+            if(node.firstChild.pathname === '/' && this.props.active === '')
                 node.classList.add('active-nav');
-            if(node.firstChild.pathname == `/${this.props.active}/`)
+            if(node.firstChild.pathname === `/${this.props.active}/`)
                 node.classList.add('active-nav');
         })
     }
