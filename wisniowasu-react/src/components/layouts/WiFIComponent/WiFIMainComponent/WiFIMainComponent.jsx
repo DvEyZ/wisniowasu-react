@@ -124,21 +124,26 @@ export class WiFIMainComponent extends React.Component
                         // loaded: true,
                         error: false,
                     });
-                    scrollreveal().reveal(this.sponsors_container.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
-                    scrollreveal().reveal(this.partners_container.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
-                    scrollreveal().reveal(this.about_container.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
-                    this.count();
                     
-                    this.interval = setInterval(() => {this.count()}, 1000);
+                    if(this.state.loaded && !this.state.error) 
+                    {
+                            scrollreveal().reveal(this.sponsors_container.childNodes, {
+                            easing: 'ease-in-out',
+                            distance: '20px',
+                        });
+                        scrollreveal().reveal(this.partners_container.childNodes, {
+                            easing: 'ease-in-out',
+                            distance: '20px',
+                        });
+                        scrollreveal().reveal(this.about_container.childNodes, {
+                            easing: 'ease-in-out',
+                            distance: '20px',
+                        });
+                        
+                        this.count();
+                        
+                        this.interval = setInterval(() => {this.count()}, 1000);
+                    }
                 }
             ).catch(e => this.setState({error: e}))
         ).catch(e => this.setState({error:e}))

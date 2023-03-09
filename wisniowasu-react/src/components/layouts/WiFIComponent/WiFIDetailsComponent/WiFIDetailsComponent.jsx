@@ -44,11 +44,13 @@ export class WiFIDetailsComponent extends React.Component
                         // loaded: true,
                         error: false,
                     });
-
-                    scrollreveal().reveal(this.content.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
+                    if(this.state.loaded && !this.state.error)
+                    {
+                        scrollreveal().reveal(this.content.childNodes, {
+                            easing: 'ease-in-out',
+                            distance: '20px',
+                        });
+                    }
                 }
             ).catch(e => this.setState({error: e}))
         ).catch(e => this.setState({error:e}))
