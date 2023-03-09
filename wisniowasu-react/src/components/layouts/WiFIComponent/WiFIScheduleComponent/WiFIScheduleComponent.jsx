@@ -1,5 +1,7 @@
 import React from "react";
 import { WiFIScheduleEntryComponent } from "./WiFIScheduleEntryComponent";
+import Loading from "../../../reusables/LoadingComponent/Loading";
+import Error from "../../../reusables/ErrorComponent/Error";
 
 import './schedule.scss'
 
@@ -43,7 +45,7 @@ export class WiFIScheduleComponent extends React.Component
                                 })
                             }
                         }),
-                        loaded: true,
+                        // loaded: true,
                         error: false,
                     });
                     scrollreveal().reveal(this.schedule.childNodes, {
@@ -52,12 +54,14 @@ export class WiFIScheduleComponent extends React.Component
                     });
                 }
             ).catch(e => this.setState({error: e}))
-        ).catch(e => this.setState({error:e}));
+        ).catch(e => this.setState({error:e}))
+        .finally(() => this.setState({loaded: true}));
     }
 
     render()
     {
-        if(this.state.error) return(<div>Błąd: {this.state.error.toString()}</div>)
+        if(this.state.error) return(<Error message={this.state.error.toString()} />)
+        if(!this.state.loaded) return (<Loading />)
         return(
             <div className="page-container">
                 <section className="schedule">
