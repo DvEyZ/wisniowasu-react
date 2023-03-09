@@ -6,6 +6,8 @@ import scrollreveal from 'scrollreveal';
 
 import { HomeMinicardComponent } from './HomeMinicardComponent';
 import { HomeButtonComponent } from './HomeButtonComponent';
+import Loading from '../../reusables/LoadingComponent/Loading';
+import Error from '../../reusables/ErrorComponent/Error';
 
 import { cms } from '../../../CMS';
 
@@ -69,7 +71,7 @@ export class HomeComponent extends React.Component
                                 href: v.href
                             }
                         }),
-                        loaded: true,
+                        // loaded: true,
                         error: false
                     });
 
@@ -87,7 +89,8 @@ export class HomeComponent extends React.Component
                     });
                 }
             ).catch((e) => this.setState({error: e}))}
-        ).catch((e) => this.setState({error: e}));
+        ).catch((e) => this.setState({error: e}))
+        .finally(() => this.setState({loaded: true}));
 
         VanillaTilt.init(this.logo, {
             reverse: true, // reverse the tilt direction
@@ -117,7 +120,8 @@ export class HomeComponent extends React.Component
 
     render()
     {
-        if(this.state.error) return(<div>{this.state.error.toString()}</div>)
+        if(this.state.error) return(<Error message={this.state.error.toString()}/>)
+        if(!this.state.loaded) return (<Loading />)
         return (
             <div id="home">
                 <div id="logo_container" style={{'$imageurl': `url('/../public/img/team/2019_20/team.jpg?size=1920')`}}>

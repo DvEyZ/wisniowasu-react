@@ -1,6 +1,9 @@
 import React from "react";
 import scrollreveal from "scrollreveal";
 import { TeamPersonComponent } from './TeamPersonComponent';
+import Loading from "../../reusables/LoadingComponent/Loading";
+import Error from "../../reusables/ErrorComponent/Error";
+
 import { cms } from "../../../CMS";
 export class TeamYearComponent extends React.Component
 {
@@ -50,12 +53,13 @@ export class TeamYearComponent extends React.Component
                                 text: v.text
                             }
                         }),
-                        loaded: true,
+                        // loaded: true,
                         error: false,
                     });
                 }
             ).catch(e => this.setState({error: e}))
-        ).catch(e => this.setState({error:e}));
+        ).catch(e => this.setState({error:e}))
+        .finally(() => this.setState({loaded: true}));
 
         scrollreveal().reveal(this.management_cards, {
             easing: 'ease-in-out',
@@ -69,7 +73,8 @@ export class TeamYearComponent extends React.Component
 
     render()
     {
-        if(this.state.error) return (<div>Błąð: {this.state.error.toString()}</div>);
+        if(this.state.error) return (<Error message={this.state.error.toString()} />)
+        if(!this.state.loaded) return (<Loading />)
         return (
             <div className="team_year">
                 <div className="title_box">

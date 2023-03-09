@@ -4,6 +4,9 @@ import scrollreveal from "scrollreveal";
 import './forstudent.scss'
 
 import { ForStudentServiceCardComponent } from './ForStudentServiceCardComponent'
+import Loading from "../../reusables/LoadingComponent/Loading";
+import Error from "../../reusables/ErrorComponent/Error";
+
 import { cms } from "../../../CMS";
 
 export class ForStudentComponent extends React.Component
@@ -32,7 +35,7 @@ export class ForStudentComponent extends React.Component
                                 img: `${cms}${v.image.data.attributes.url}`,
                             }
                         }),
-                        loaded: true,
+                        // loaded: true,
                         error: false
                     });
 
@@ -42,12 +45,14 @@ export class ForStudentComponent extends React.Component
                     });
                 }
             ).catch((e) => this.setState({error: e}))}
-        ).catch((e) => this.setState({error: e}));
+        ).catch((e) => this.setState({error: e}))
+        .finally(() => this.setState({loaded: true}));
     }
 
     render()
     {
-        if(this.state.error) return(<div>Błąd: {this.state.error.toString()} </div>)
+        if(this.state.error) return(<Error message={this.state.error.toString()} />)
+        if(!this.state.loaded) return(<Loading />)
         return (
             <div className="for_student">
                 <div className="title_box">
@@ -56,9 +61,9 @@ export class ForStudentComponent extends React.Component
                     </h1>
                 </div>
                 <div id="services_container" ref={node => {this.services = node}}>
-                    {this.state.loaded? this.state.cards.map((value, key) => 
+                    {this.state.cards.map((value, key) => 
                         <ForStudentServiceCardComponent key={key} img={value.img} name={value.name} description={value.description} link={value.link}/>
-                    ): null}
+                    )}
                 </div>
             </div>
         );

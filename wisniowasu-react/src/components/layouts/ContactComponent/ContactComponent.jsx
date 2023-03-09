@@ -1,6 +1,9 @@
 import React from 'react';
 import scrollreveal from 'scrollreveal';
 
+import Loading from '../../reusables/LoadingComponent/Loading';
+import Error from '../../reusables/ErrorComponent/Error';
+
 import { cms } from '../../../CMS';
 
 import './contact.scss'
@@ -28,12 +31,13 @@ export class ContactComponent extends React.Component
                     this.setState({
                         admin_name: value.data.attributes.admin_name,
                         admin_email: value.data.attributes.admin_email,
-                        loaded: true,
+                        // loaded: true,
                         error: false
                     });
                 }
             ).catch((e) => this.setState({error: e}))}
-        ).catch((e) => this.setState({error: e}));
+        ).catch((e) => this.setState({error: e}))
+        .finally(() => this.setState({loaded: true}));
     
         scrollreveal().reveal(this.slideables.childNodes, {
             easing: 'ease-in-out',
@@ -43,7 +47,8 @@ export class ContactComponent extends React.Component
 
     render()
     {
-        if(this.state.error) return(<div>błąd...</div>)
+        if(this.state.error) return(<Error message={this.state.error.toString()} />)
+        if(!this.state.loaded) return(<Loading />)
         return (
             <div className="contact">
                 <div className="title_box">
@@ -53,7 +58,7 @@ export class ContactComponent extends React.Component
                 </div>
                 <div className="fullpadding" id="contact_container" ref={node => {this.slideables = node}}>
                     <div className="smallbox slideable">
-                        { this.state.loaded ? <div className="smallbox-container">
+                        <div className="smallbox-container">
                             <div className="data">
                                 <p className="title">Napisz maila</p>
                                 <br/>
@@ -80,7 +85,7 @@ export class ContactComponent extends React.Component
                                 <a href="https://instagram.wisniowasu.pl" className="instagram-icon"></a>
                                 <a href="https://discord.wisniowasu.pl" className="discord-icon"></a>
                             </div>
-                        </div> : null }
+                        </div>
                     </div>
                     <iframe className="discord slideable" src="https://discordapp.com/widget?id=497703565738115085&theme=light" width="350"
                         height="500" allowtransparency="true" frameBorder="0"></iframe>

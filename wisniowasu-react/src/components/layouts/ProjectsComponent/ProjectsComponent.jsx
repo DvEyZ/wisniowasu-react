@@ -1,6 +1,8 @@
 import React from 'react';
 import scrollreveal from 'scrollreveal';
 import { ProjectsTimelineCardComponent } from './ProjectsTimelineCardComponent'
+import Loading from '../../reusables/LoadingComponent/Loading';
+import Error from '../../reusables/ErrorComponent/Error';
 
 import './projects.scss'
 
@@ -33,7 +35,7 @@ export class ProjectsComponent extends React.Component
                                 text: v.text,
                             }
                         }),
-                        loaded: true,
+                        // loaded: true,
                         error: false
                     });
 
@@ -43,12 +45,14 @@ export class ProjectsComponent extends React.Component
                     });
                 }
             ).catch((e) => this.setState({error: e}))}
-        ).catch((e) => this.setState({error: e}));
+        ).catch((e) => this.setState({error: e}))
+        .finally(() => this.setState({loaded: true}))
     }
 
     render()
     {
-        if(this.state.error) return(<div>Błąd...</div>)
+        if(this.state.error) return(<Error message={this.state.error.toString()} />)
+        if (!this.state.loaded) return (<Loading />)
         return (
             <div className="projects">
                 <div className="title_box">
@@ -58,10 +62,9 @@ export class ProjectsComponent extends React.Component
                     <div id="timeline_line"></div>
                     <div id="timeline_container">
                         <div className="timeline_card" ref={node => {this.cards = node}}>
-                            {this.state.loaded? 
-                                this.state.cards.map((value, index) => 
+                            {this.state.cards.map((value, index) => 
                                     <ProjectsTimelineCardComponent key={index} date={value.date} img={value.img} title={value.title} text={value.text} /> 
-                            ) : null}
+                            )}
                         </div>
                     </div>
                 </div>
