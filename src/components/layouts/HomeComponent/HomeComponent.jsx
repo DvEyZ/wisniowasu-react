@@ -81,16 +81,6 @@ export class HomeComponent extends React.Component
         ).catch((e) => this.setState({error: e}))
         .finally(() => this.setState({loaded: true}));
 
-        VanillaTilt.init(this.logo, {
-            reverse: true, // reverse the tilt direction
-            max: 10, // max tilt rotation (degrees)
-            perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-            speed: 1000, // Speed of the enter/exit transition
-            transition: true, // Set a transition on enter/exit.
-            reset: true, // If the tilt effect has to be reset on exit.
-            'full-page-listening': true,
-        });
-
         window.addEventListener('scroll', (e) => {
             var viewH = window.innerHeight;
             var scrollPosition = document.scrollingElement.scrollTop;
@@ -110,6 +100,16 @@ export class HomeComponent extends React.Component
     componentDidUpdate()
     {
         slide();
+
+        VanillaTilt.init(this.logo, {
+            reverse: true, // reverse the tilt direction
+            max: 10, // max tilt rotation (degrees)
+            perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+            speed: 1000, // Speed of the enter/exit transition
+            transition: true, // Set a transition on enter/exit.
+            reset: true, // If the tilt effect has to be reset on exit.
+            'full-page-listening': true,
+        });
     }
 
     render()
