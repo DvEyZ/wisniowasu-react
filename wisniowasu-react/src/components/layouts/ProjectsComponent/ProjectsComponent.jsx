@@ -1,5 +1,4 @@
 import React from 'react';
-import scrollreveal from 'scrollreveal';
 import { ProjectsTimelineCardComponent } from './ProjectsTimelineCardComponent'
 import Loading from '../../reusables/LoadingComponent/Loading';
 import Error from '../../reusables/ErrorComponent/Error';
@@ -7,6 +6,8 @@ import Error from '../../reusables/ErrorComponent/Error';
 import './projects.scss'
 
 import { cms } from '../../../CMS';
+
+import { slide } from '../../../slide';
 
 export class ProjectsComponent extends React.Component
 {
@@ -38,15 +39,15 @@ export class ProjectsComponent extends React.Component
                         // loaded: true,
                         error: false
                     });
-
-                    scrollreveal().reveal(this.cards.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
                 }
             ).catch((e) => this.setState({error: e}))}
         ).catch((e) => this.setState({error: e}))
         .finally(() => this.setState({loaded: true}))
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
 
     render()

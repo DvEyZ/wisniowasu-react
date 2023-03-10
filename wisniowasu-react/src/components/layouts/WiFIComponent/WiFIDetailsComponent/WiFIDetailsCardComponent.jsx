@@ -5,7 +5,7 @@ export class WiFIDetailsCardComponent extends React.Component
     render()
     {
         return(
-            <section className="info-card">
+            <section className="info-card slideable">
                 <div className="info-card__image rounded">
                     <img className="info-card-image" src={this.props.img}/>
                 </div>

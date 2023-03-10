@@ -5,9 +5,8 @@ import Error from "../../../reusables/ErrorComponent/Error";
 
 import './schedule.scss'
 
-import scrollreveal from "scrollreveal";
-
 import { cms } from "../../../../CMS";
+import { slide } from "../../../../slide";
 
 export class WiFIScheduleComponent extends React.Component
 {
@@ -20,6 +19,11 @@ export class WiFIScheduleComponent extends React.Component
             loaded: false,
             error: false
         }
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
     
     componentDidMount()
@@ -48,14 +52,6 @@ export class WiFIScheduleComponent extends React.Component
                         // loaded: true,
                         error: false,
                     });
-
-                    if(this.state.loaded && !this.state.error)
-                    {
-                        scrollreveal().reveal(this.schedule.childNodes, {
-                            easing: 'ease-in-out',
-                            distance: '20px',
-                        });
-                    }
                 }
             ).catch(e => this.setState({error: e}))
         ).catch(e => this.setState({error:e}))

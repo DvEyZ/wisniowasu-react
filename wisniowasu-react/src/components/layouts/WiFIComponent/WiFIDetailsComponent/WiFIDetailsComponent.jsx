@@ -5,9 +5,8 @@ import Error from "../../../reusables/ErrorComponent/Error";
 
 import './details.scss';
 
-import scrollreveal from 'scrollreveal';
-
 import { cms } from "../../../../CMS";
+import { slide } from '../../../../slide'
 
 export class WiFIDetailsComponent extends React.Component
 {
@@ -44,17 +43,15 @@ export class WiFIDetailsComponent extends React.Component
                         // loaded: true,
                         error: false,
                     });
-                    if(this.state.loaded && !this.state.error)
-                    {
-                        scrollreveal().reveal(this.content.childNodes, {
-                            easing: 'ease-in-out',
-                            distance: '20px',
-                        });
-                    }
                 }
             ).catch(e => this.setState({error: e}))
         ).catch(e => this.setState({error:e}))
         .finally(() => this.setState({loaded: true}));
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
 
     render()

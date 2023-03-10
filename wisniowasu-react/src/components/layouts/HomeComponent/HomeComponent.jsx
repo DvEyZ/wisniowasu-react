@@ -2,7 +2,6 @@ import React from 'react';
 import VanillaTilt from 'vanilla-tilt';
 
 import './home.scss'
-import scrollreveal from 'scrollreveal';
 
 import { HomeMinicardComponent } from './HomeMinicardComponent';
 import { HomeButtonComponent } from './HomeButtonComponent';
@@ -10,6 +9,9 @@ import Loading from '../../reusables/LoadingComponent/Loading';
 import Error from '../../reusables/ErrorComponent/Error';
 
 import { cms } from '../../../CMS';
+
+import { slide } from '../../../slide'
+
 
 export class HomeComponent extends React.Component
 {
@@ -74,19 +76,6 @@ export class HomeComponent extends React.Component
                         // loaded: true,
                         error: false
                     });
-
-                    scrollreveal().reveal(this.buttons.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
-                    scrollreveal().reveal(this.values.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
-                    scrollreveal().reveal(this.sections.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
                 }
             ).catch((e) => this.setState({error: e}))}
         ).catch((e) => this.setState({error: e}))
@@ -118,6 +107,11 @@ export class HomeComponent extends React.Component
         });
     }
 
+    componentDidUpdate()
+    {
+        slide();
+    }
+
     render()
     {
         if(this.state.error) return(<Error message={this.state.error.toString()}/>)
@@ -146,7 +140,7 @@ export class HomeComponent extends React.Component
                     O nas
                 </h1>
                 <div className="pageblock-full">
-                    <div className="card">
+                    <div className="card slideable">
                         <div className="card-image">
                             <img src={this.state.description_image}/>
                         </div>

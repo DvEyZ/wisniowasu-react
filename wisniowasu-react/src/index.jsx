@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './main.scss'
+import './slide.css'
 import { FooterComponent } from './components/reusables/FooterComponent/FooterComponent';
 import { MenuComponent } from './components/reusables/MenuComponent/MenuComponent';
 

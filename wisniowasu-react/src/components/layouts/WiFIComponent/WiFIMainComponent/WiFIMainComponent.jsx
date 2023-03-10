@@ -7,8 +7,8 @@ import { WiFIPartnerComponent } from "./WiFIPartnerComponent";
 import Loading from "../../../reusables/LoadingComponent/Loading";
 import Error from "../../../reusables/ErrorComponent/Error";
 
-import scrollreveal from 'scrollreveal';
 import { cms } from "../../../../CMS";
+import { slide } from '../../../../slide'
 
 export class WiFIMainComponent extends React.Component
 {
@@ -126,20 +126,7 @@ export class WiFIMainComponent extends React.Component
                     });
                     
                     if(this.state.loaded && !this.state.error) 
-                    {
-                            scrollreveal().reveal(this.sponsors_container.childNodes, {
-                            easing: 'ease-in-out',
-                            distance: '20px',
-                        });
-                        scrollreveal().reveal(this.partners_container.childNodes, {
-                            easing: 'ease-in-out',
-                            distance: '20px',
-                        });
-                        scrollreveal().reveal(this.about_container.childNodes, {
-                            easing: 'ease-in-out',
-                            distance: '20px',
-                        });
-                        
+                    {   
                         this.count();
                         
                         this.interval = setInterval(() => {this.count()}, 1000);
@@ -148,6 +135,11 @@ export class WiFIMainComponent extends React.Component
             ).catch(e => this.setState({error: e}))
         ).catch(e => this.setState({error:e}))
         .finally(() => this.setState({loaded: true}));
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
 
     componentWillUnmount()
@@ -163,7 +155,7 @@ export class WiFIMainComponent extends React.Component
             <div>
                 <div className="section_topic alt-mobile-anim" id="countdown" ref={node => {this.countdown = node}}></div>
                     <div className="pageblock-full" id="description-container">
-                        <div className="minicard" id="wifi_description">
+                        <div className="minicard slideable" id="wifi_description">
                             <img className="minicard-icon lazyload" id="wifi-logo" alt={this.state.logo_alt}
                                 src={this.state.logo} />
                             <h3 className="minicard-title" id="wifi_description_title">Wiśniowy Festiwal Inicjatyw</h3>

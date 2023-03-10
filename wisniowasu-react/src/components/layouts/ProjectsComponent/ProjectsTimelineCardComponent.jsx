@@ -38,7 +38,7 @@ export class ProjectsTimelineCardComponent extends React.Component
     render()
     {
         return (
-            <div className="timeline_card" ref={node => {this.root = node}}>
+            <div className="timeline_card slideable" ref={node => {this.root = node}}>
                 <div className="date">
                     {this.props.date}
                 </div>

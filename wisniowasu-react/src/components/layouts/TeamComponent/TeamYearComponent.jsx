@@ -1,10 +1,11 @@
 import React from "react";
-import scrollreveal from "scrollreveal";
 import { TeamPersonComponent } from './TeamPersonComponent';
 import Loading from "../../reusables/LoadingComponent/Loading";
 import Error from "../../reusables/ErrorComponent/Error";
 
 import { cms } from "../../../CMS";
+
+import { slide } from '../../../slide'
 export class TeamYearComponent extends React.Component
 {
     constructor(props)
@@ -56,22 +57,15 @@ export class TeamYearComponent extends React.Component
                         // loaded: true,
                         error: false,
                     });
-
-                    if(this.state.loaded && !this.state.error)
-                    {
-                        scrollreveal().reveal(this.management_cards, {
-                            easing: 'ease-in-out',
-                            distance: '20px',
-                        });
-                        scrollreveal().reveal(this.section_cards, {
-                            easing: 'ease-in-out',
-                            distance: '20px',
-                        });
-                    }
                 }
             ).catch(e => this.setState({error: e}))
         ).catch(e => this.setState({error:e}))
         .finally(() => this.setState({loaded: true}));
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
 
     render()

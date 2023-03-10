@@ -1,5 +1,5 @@
 import React from 'react';
-import scrollreveal from 'scrollreveal';
+import { slide } from '../../../slide';
 
 import Loading from '../../reusables/LoadingComponent/Loading';
 import Error from '../../reusables/ErrorComponent/Error';
@@ -34,18 +34,15 @@ export class ContactComponent extends React.Component
                         // loaded: true,
                         error: false
                     });
-
-                    if(this.state.loaded && !this.state.error)
-                    {
-                        scrollreveal().reveal(this.slideables, {
-                            easing: 'ease-in-out',
-                            distance: '20px',
-                        });
-                    }
                 }
             ).catch((e) => this.setState({error: e}))}
         ).catch((e) => this.setState({error: e}))
         .finally(() => this.setState({loaded: true}));
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
 
     render()
