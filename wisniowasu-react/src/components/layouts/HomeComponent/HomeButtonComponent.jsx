@@ -5,7 +5,7 @@ export class HomeButtonComponent extends React.Component
     render()
     {
         return (
-            <a className="button" href={ this.props.href }>
+            <a className="button slideable" href={ this.props.href }>
                 <div className="img_container">
                     <img src={this.props.img} alt={this.props.alt} className="lazyload" />
                 </div>

@@ -39,7 +39,7 @@ export class TeamPersonComponent extends React.Component
     render()
     {
         return(
-            <div className={`human-card ${this.state.active ? 'disp open' : ''}`} onClick={this.toggle} onMouseLeave={() => {this.setState({active:false})}} ref={node => {this.root = node}} data-tilt>
+            <div className={`human-card slideable ${this.state.active ? 'disp open' : ''}`} onClick={this.toggle} onMouseLeave={() => {this.setState({active:false})}} ref={node => {this.root = node}} data-tilt>
                 <img className="personimg" src={this.props.photo} />
                 <div className="info">
                     <img src={this.props.icon} />

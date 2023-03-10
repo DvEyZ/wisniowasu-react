@@ -5,7 +5,7 @@ export class WiFIScheduleEntryComponent extends React.Component
     render()
     {
         return(
-            <div className="schedule-entry">
+            <div className="schedule-entry slideable">
                 <figure className="schedule__timespan" style={{'--order': 0}}>
                     <figcaption>{this.props.hour}</figcaption>
                 </figure>

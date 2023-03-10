@@ -4,9 +4,11 @@ import { WiFISponsorComponent } from "./WiFISponsorComponent";
 
 import './wifi.scss';
 import { WiFIPartnerComponent } from "./WiFIPartnerComponent";
+import Loading from "../../../reusables/LoadingComponent/Loading";
+import Error from "../../../reusables/ErrorComponent/Error";
 
-import scrollreveal from 'scrollreveal';
 import { cms } from "../../../../CMS";
+import { slide } from '../../../../slide'
 
 export class WiFIMainComponent extends React.Component
 {
@@ -119,27 +121,25 @@ export class WiFIMainComponent extends React.Component
                                 alt: v.logo.data.attributes.alternativeText
                             }
                         }),
-                        loaded: true,
+                        // loaded: true,
                         error: false,
                     });
-                    scrollreveal().reveal(this.sponsors_container.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
-                    scrollreveal().reveal(this.partners_container.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
-                    scrollreveal().reveal(this.about_container.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
-                    });
-                    this.count();
                     
-                    this.interval = setInterval(() => {this.count()}, 1000);
+                    if(this.state.loaded && !this.state.error) 
+                    {   
+                        this.count();
+                        
+                        this.interval = setInterval(() => {this.count()}, 1000);
+                    }
                 }
             ).catch(e => this.setState({error: e}))
-        ).catch(e => this.setState({error:e}));
+        ).catch(e => this.setState({error:e}))
+        .finally(() => this.setState({loaded: true}));
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
 
     componentWillUnmount()
@@ -149,12 +149,13 @@ export class WiFIMainComponent extends React.Component
 
     render()
     {
-        if(this.state.error) return(<div>Błąd: {this.state.error.toString()}</div>)
+        if(this.state.error) return(<Error message={this.state.error.toString()} />)
+        if(!this.state.loaded) return (<Loading />)
         return(
             <div>
                 <div className="section_topic alt-mobile-anim" id="countdown" ref={node => {this.countdown = node}}></div>
                     <div className="pageblock-full" id="description-container">
-                        <div className="minicard" id="wifi_description">
+                        <div className="minicard slideable" id="wifi_description">
                             <img className="minicard-icon lazyload" id="wifi-logo" alt={this.state.logo_alt}
                                 src={this.state.logo} />
                             <h3 className="minicard-title" id="wifi_description_title">Wiśniowy Festiwal Inicjatyw</h3>
@@ -166,27 +167,27 @@ export class WiFIMainComponent extends React.Component
                 <div className="section_topic">O WiFI</div>
                 <div className="pageblock-full">
                     <div className="cardgroup" id="about-container" ref={node => {this.about_container = node}}>
-                        {this.state.loaded? this.state.about.map((value, key) => 
+                        {this.state.about.map((value, key) => 
                             <WiFIMainMinicardComponent key={key} title={value.title} text={value.text}/>
-                        ): null}
+                        )}
                     </div>
                 </div>
                 <div className="section_topic">Sponsorzy</div>
                 <div className="sponsors" ref={node => {this.sponsors_container = node}}>
-                    {this.state.loaded? this.state.sponsors.map((value, key) => 
+                    {this.state.sponsors.map((value, key) => 
                         <WiFISponsorComponent key={key} img={value.img} alt={value.alt} link={value.link} /> 
-                    ) : null}
+                    )}
                 </div>
                 <p className="sponsors__disclaimer">{this.state.sponsors_disclaimer}</p>
                 <div className="section_topic">Partnerzy</div>
                 <div className="pageblock-full" ref={node => {this.partners_container = node}} style={{'flexFlow': 'row wrap', 'alignItems': 'stretch'}}>
-                    {this.state.loaded? this.state.partners.map((value, key) =>
+                    {this.state.partners.map((value, key) =>
                         <WiFIPartnerComponent key={key} img={value.img} alt={value.alt} title={value.title} content={value.content} 
                             facebook={value.facebook? value.facebook : undefined} discord={value.discord? value.discord : undefined}
                             twitter={value.twitter? value.twitter : undefined} instagram={value.instagram? value.instagram : undefined} 
                             youtube={value.youtube? value.youtube : undefined}
                         />
-                    ): null}
+                    )}
                 </div>
             </div>
         );

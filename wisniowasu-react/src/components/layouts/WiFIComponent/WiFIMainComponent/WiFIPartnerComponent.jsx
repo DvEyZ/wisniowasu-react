@@ -5,7 +5,7 @@ export class WiFIPartnerComponent extends React.Component
     render()
     {
         return(
-            <section className="partner-card">
+            <section className="partner-card slideable">
                 <img src={this.props.img} alt={this.props.alt} className="partner-card__image" />
                 <h3 className="partner-card__header">{this.props.title}</h3>
                 <p className="partner-card__text">{this.props.content}</p>

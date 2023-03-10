@@ -1,15 +1,21 @@
 import React from 'react';
 
+import {slide} from '../../../../slide'
 import './contact.scss';
 
 export class WiFIContactComponent extends React.Component
 {
+    componentDidMount()
+    {
+        slide();
+    }
+
     render()
     {
         return(
             <div>
                 <h2 className="section_topic alt-mobile-anim">Pytania? Napisz do nas</h2>
-                <section className="contact-card">
+                <section className="contact-card slideable">
                     <h2 className="contact-card__title">Jesteś ciekawy przebiegu pracy?</h2>
                     <p className="contact-card__content">Obserwuj nas na bieżąco w social mediach oraz w razie pytań lub sugestii koniecznie
                         pisz do nas za pośrednictwem maila <a href="mailto:kontakt@wisniowasu.pl">kontakt@wisniowasu.pl</a> albo
@@ -23,7 +29,7 @@ export class WiFIContactComponent extends React.Component
                     </div>
                 </section>
 
-                <form className="contact-container" id="form">
+                <form className="contact-container slideable" id="form">
                     <fieldset className="contact-form">
                         <legend className="contact-form__legend">Kontakt</legend>
                         <label className="contact-form__label" htmlFor="name">Imię i nazwisko</label>

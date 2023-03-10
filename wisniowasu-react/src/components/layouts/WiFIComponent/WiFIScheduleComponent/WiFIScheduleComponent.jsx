@@ -1,11 +1,12 @@
 import React from "react";
 import { WiFIScheduleEntryComponent } from "./WiFIScheduleEntryComponent";
+import Loading from "../../../reusables/LoadingComponent/Loading";
+import Error from "../../../reusables/ErrorComponent/Error";
 
 import './schedule.scss'
 
-import scrollreveal from "scrollreveal";
-
 import { cms } from "../../../../CMS";
+import { slide } from "../../../../slide";
 
 export class WiFIScheduleComponent extends React.Component
 {
@@ -18,6 +19,11 @@ export class WiFIScheduleComponent extends React.Component
             loaded: false,
             error: false
         }
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
     
     componentDidMount()
@@ -43,21 +49,19 @@ export class WiFIScheduleComponent extends React.Component
                                 })
                             }
                         }),
-                        loaded: true,
+                        // loaded: true,
                         error: false,
-                    });
-                    scrollreveal().reveal(this.schedule.childNodes, {
-                        easing: 'ease-in-out',
-                        distance: '20px',
                     });
                 }
             ).catch(e => this.setState({error: e}))
-        ).catch(e => this.setState({error:e}));
+        ).catch(e => this.setState({error:e}))
+        .finally(() => this.setState({loaded: true}));
     }
 
     render()
     {
-        if(this.state.error) return(<div>Błąd: {this.state.error.toString()}</div>)
+        if(this.state.error) return(<Error message={this.state.error.toString()} />)
+        if(!this.state.loaded) return (<Loading />)
         return(
             <div className="page-container">
                 <section className="schedule">

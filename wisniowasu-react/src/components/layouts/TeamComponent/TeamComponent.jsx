@@ -1,6 +1,9 @@
 import React from "react";
 import { TeamPickerComponent } from './TeamPickerComponent'
 import { TeamYearComponent } from './TeamYearComponent';
+import Loading from "../../reusables/LoadingComponent/Loading";
+import Error from "../../reusables/ErrorComponent/Error";
+
 import { Routes, Route } from "react-router-dom";
 
 import './team.scss';
@@ -29,18 +32,20 @@ export class TeamComponent extends React.Component
                         years: value.data.map((v) => {
                                 return v.attributes.year;
                             }),
-                        loaded: true,
+                        // loaded: true,
                         error: false,
                     });
                 }
             ).catch(e => this.setState({error: e}))
-        ).catch(e => this.setState({error:e}));
+        ).catch(e => this.setState({error:e}))
+        .finally(() => this.setState({loaded: true}));
     }
 
     render()
     {
-        if(this.state.error) return(<div>Błąd</div>);
-        if(this.state.loaded) return(
+        if(this.state.error) return(<Error message={this.state.error.toString()} />);
+        if (!this.state.loaded) return (<Loading />)
+        return (
             <div id="team">
                 <Routes>
                     <Route path="/" element={
