@@ -7,7 +7,7 @@ import Error from "../../reusables/ErrorComponent/Error";
 import { Routes, Route } from "react-router-dom";
 
 import './team.scss';
-
+import { title } from "../../..";
 import { cms } from '../../../CMS';
 
 export class TeamComponent extends React.Component
@@ -39,6 +39,8 @@ export class TeamComponent extends React.Component
             ).catch(e => this.setState({error: e}))
         ).catch(e => this.setState({error:e}))
         .finally(() => this.setState({loaded: true}));
+
+        document.title = `Zespół | ${title}`;
     }
 
     render()

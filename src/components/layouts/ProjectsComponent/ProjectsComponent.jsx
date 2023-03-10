@@ -6,7 +6,7 @@ import Error from '../../reusables/ErrorComponent/Error';
 import './projects.scss'
 
 import { cms } from '../../../CMS';
-
+import { title } from '../../..';
 import { slide } from '../../../slide';
 
 export class ProjectsComponent extends React.Component
@@ -42,7 +42,9 @@ export class ProjectsComponent extends React.Component
                 }
             ).catch((e) => this.setState({error: e}))}
         ).catch((e) => this.setState({error: e}))
-        .finally(() => this.setState({loaded: true}))
+        .finally(() => this.setState({loaded: true}));
+
+        document.title = `Projekty | ${title}`;
     }
 
     componentDidUpdate()

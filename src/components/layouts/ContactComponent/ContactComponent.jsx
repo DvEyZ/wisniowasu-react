@@ -7,6 +7,7 @@ import Error from '../../reusables/ErrorComponent/Error';
 import { cms } from '../../../CMS';
 
 import './contact.scss'
+import { title } from '../../..';
 
 export class ContactComponent extends React.Component 
 {
@@ -38,6 +39,8 @@ export class ContactComponent extends React.Component
             ).catch((e) => this.setState({error: e}))}
         ).catch((e) => this.setState({error: e}))
         .finally(() => this.setState({loaded: true}));
+
+        document.title = `Kontakt | ${title}`;
     }
 
     componentDidUpdate()

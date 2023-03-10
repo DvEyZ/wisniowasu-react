@@ -7,7 +7,7 @@ import Loading from "../../reusables/LoadingComponent/Loading";
 import Error from "../../reusables/ErrorComponent/Error";
 
 import { cms } from "../../../CMS";
-
+import { title } from "../../../index";
 import { slide } from '../../../slide'
 
 export class ForStudentComponent extends React.Component
@@ -22,8 +22,11 @@ export class ForStudentComponent extends React.Component
             error: false
         }
     }
+
     componentDidMount()
     {
+        document.title = `Dla ucznia | ${title}`;
+
         fetch(`${cms}/api/for-student?` + new URLSearchParams({'populate[0]':'cards', 'populate[1]':'cards.image'})).then(
             res => {res.json().then(
                 value => {

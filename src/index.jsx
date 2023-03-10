@@ -58,3 +58,7 @@ window.addEventListener('scroll', () => {
         }
     }
 })
+
+export const title = 'Wiśniowa SU - Samorząd Uczniowski'
+
+document.title = title
