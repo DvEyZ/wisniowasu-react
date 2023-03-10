@@ -6,7 +6,7 @@ const Error = ({message}) => {
       <div>
         <div className="title_box">
             <h1 className="title_box_text">
-                ...
+                Błąd
             </h1>
         </div>
         <div className='error-container'>
