@@ -1,0 +1,136 @@
+@import "./flickity.css";
+
+.info-card {
+  display: grid;
+  grid-template-rows: 1fr 250px auto;
+  grid-template-areas: "content" "image" "caption";
+  margin: 1rem;
+  background-color: white;
+  border-radius: 25px;
+  overflow: hidden;
+
+  @media (min-width: 600px) {
+    max-width: 1000px;
+    margin: 1.5rem auto;
+    grid-template-columns: 500px 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "image content"
+      "caption content";
+  }
+
+  &__image {
+    background-size: cover;
+    grid-area: image;
+    width: 100%;
+    height: 100%;
+    background-position-y: var(--offset-y, 100%);
+
+    @media (min-width: 600px) {
+      height: 300px;
+
+      &.rounded {
+        border-end-end-radius: 25px;
+      }
+    }
+  }
+
+  &__image-caption {
+    grid-area: caption;
+    justify-self: end;
+    min-height: 2em;
+    margin: 0.5rem 1rem;
+    text-align: right;
+    font-size: 1.2em;
+  }
+
+  &__content {
+    padding: 0 1rem;
+    grid-area: content;
+  }
+
+  &__header {
+    color: #363636;
+    font-size: 3em;
+    font-weight: 700;
+    text-align: center;
+
+    @media (min-width: 600px) {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    font-size: 1.2em;
+    text-align: center;
+
+    @media (min-width: 600px) {
+      text-align: left;
+    }
+  }
+}
+
+.caption {
+  color: gray;
+  font-size: 0.8em;
+}
+
+.sub-header {
+  color: #363636;
+  font-size: 20px;
+  animation-name: fade-in;
+  animation-delay: 750ms;
+  animation-timing-function: ease-out;
+  animation-duration: 1.5s;
+  animation-fill-mode: backwards;
+}
+
+.gallery {
+  @media (min-width: 600px) {
+    border-end-end-radius: 25px;
+    overflow: hidden;
+  }
+}
+
+.flickity-page-dots {
+  bottom: 0.5rem;
+}
+
+.flickity-page-dots .dot {
+  opacity: 1;
+  background: transparent;
+  border: 1px solid rgba($color: #fff, $alpha: 0.8);
+}
+
+.flickity-page-dots .dot.is-selected {
+  background: white;
+}
+
+.page-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.soon {
+  font-size: 1.5em;
+  animation: fade-in 1.5s ease 1s 1 normal backwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.info-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

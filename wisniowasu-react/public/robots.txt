@@ -1,4 +1,0 @@
-User-Agent: *
-Disallow: /static/
-
-Sitemap: https://dev.wisniowasu.pl/sitemap.xml
