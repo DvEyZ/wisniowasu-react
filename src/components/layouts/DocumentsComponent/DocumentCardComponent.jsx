@@ -12,7 +12,7 @@ const DocumentCardComponent = ({name, link, preview, important}) => {
             {filledStarIcon}
           </span>
         </div>}
-      <a href={link} className='document-card__title'>
+      <a href={link}  target="_blank" className='document-card__title'>
         <img
           src="/img/icons/icons8-documents-100.png"
           alt="ikona dokumentu"
