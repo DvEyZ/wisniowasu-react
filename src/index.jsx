@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import './main.scss'
 import './slide.css'
 import { FooterComponent } from './components/reusables/FooterComponent/FooterComponent';
@@ -15,10 +16,16 @@ import { TeamComponent } from './components/layouts/TeamComponent/TeamComponent'
 import { WiFIComponent } from './components/layouts/WiFIComponent/WiFIComponent';
 import { DocumentsComponent } from './components/layouts/DocumentsComponent/DocumentsComponent';
 
+export const title = 'Wiśniowa SU - Samorząd Uczniowski'
+
 const App = () =>
 {
     return (
         <div id="app">
+            <Helmet>
+                <title>{title}</title>
+                <meta name="description" content="Wiśniowa SU - Samorząd Uczniowski"/>
+            </Helmet>
             <MenuComponent active={useLocation().pathname.split('/')[1]} />
             <Routes>
                 <Route path="/" element={<HomeComponent/>}/>
@@ -58,7 +65,5 @@ window.addEventListener('scroll', () => {
         }
     }
 })
-
-export const title = 'Wiśniowa SU - Samorząd Uczniowski'
 
 document.title = title
