@@ -7,6 +7,8 @@ import Loading from "../../reusables/LoadingComponent/Loading";
 import DocumentCardComponent from "./DocumentCardComponent";
 
 import { title } from "../../../index";
+import { cms } from "../../../CMS";
+import { slide } from "../../../slide";
 
 export class DocumentsComponent extends React.Component
 {
@@ -25,25 +27,34 @@ export class DocumentsComponent extends React.Component
     componentDidMount() {
         document.title = `Dokumenty | ${title}`;
 
-        setTimeout(() => {
-            this.setState({
-                loaded: true,
-                cards: [
-                    {
-                        name: "Statut",
-                        link: "https://tm1.edu.pl/wp-content/uploads/2022/05/statut-ZSLiT-nr-1-z-dnia-24-stycznia-2022.pdf",
-                        preview: 'https://place-hold.it/800x600?text=preview placeholder&fontsize=23',
-                        important: false,
-                    },
-                    {
-                        name: "Statut (important)",
-                        link: "https://tm1.edu.pl/wp-content/uploads/2022/05/statut-ZSLiT-nr-1-z-dnia-24-stycznia-2022.pdf",
-                        preview: 'https://place-hold.it/800x600?text=preview placeholder&fontsize=23',
-                        important: true,
-                    },
-                ],
-            });
-        }, 0);
+        fetch(`${cms}/api/document?` + new URLSearchParams({
+            'populate[0]':'documents', 
+            'populate[1]':'documents.file', 
+            'populate[2]':'documents.thumb'
+        })).then(
+            res => {res.json().then(
+                value => {
+                    this.setState({
+                        cards: value.data.attributes.documents.map((v) => {
+                            return {
+                                name: v.name,
+                                link: `${cms}${v.file.data.attributes.url}`,
+                                preview: `${cms}${v.thumb.data.attributes.url}`,
+                                important: v.important
+                            }
+                        }),
+                        // loaded: true,
+                        error: false
+                    });
+                }
+            ).catch((e) => this.setState({error: e}))}
+        ).catch((e) => this.setState({error: e}))
+        .finally(() => this.setState({loaded: true}));
+    }
+
+    componentDidUpdate()
+    {
+        slide();
     }
 
     render()

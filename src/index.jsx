@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import './main.scss'
 import './slide.css'
 import { FooterComponent } from './components/reusables/FooterComponent/FooterComponent';
@@ -22,10 +21,6 @@ const App = () =>
 {
     return (
         <div id="app">
-            <Helmet>
-                <title>{title}</title>
-                <meta name="description" content="Wiśniowa SU - Samorząd Uczniowski"/>
-            </Helmet>
             <MenuComponent active={useLocation().pathname.split('/')[1]} />
             <Routes>
                 <Route path="/" element={<HomeComponent/>}/>

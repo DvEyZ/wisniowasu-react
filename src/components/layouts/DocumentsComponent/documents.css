@@ -37,7 +37,7 @@
   border-radius: 5px;
 
   /* makes a triangle */
-  --size: 120px;
+  --size: 118px;
   width: var(--size);
   height: var(--size);
   background: linear-gradient(
