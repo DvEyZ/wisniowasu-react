@@ -7,6 +7,10 @@
   margin-inline: auto;
 }
 
+.documents-container .image-loader img {
+    width: 100%;
+}
+
 @media (min-width: 1500px) {
   .documents-container {
     grid-template-columns: 1fr 1fr;
