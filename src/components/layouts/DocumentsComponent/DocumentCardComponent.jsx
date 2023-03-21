@@ -1,4 +1,5 @@
 import React from 'react'
+import { ImageLoader, getThumbURL } from '../../reusables/ImageLoader/ImageLoader';
 
 const DocumentCardComponent = ({name, link, preview, important}) => {
   const starIconColor = 'gold';
@@ -22,7 +23,7 @@ const DocumentCardComponent = ({name, link, preview, important}) => {
         </h2>
       </a>
 
-      <img src={preview} alt="preview" className='document-card__preview'/>
+      <ImageLoader src={preview} alt="preview" thumb={getThumbURL(preview)} className='document-card__preview'/>
 
       {/* działa tylko na niektórych przeglądarkach, ogólnie raczej nie optymalne */}
       {/* <iframe
