@@ -23,7 +23,7 @@ const DocumentCardComponent = ({name, link, preview, important}) => {
         </h2>
       </a>
 
-      <ImageLoader src={preview} alt="preview" thumb={getThumbURL(preview)} className='document-card__preview'/>
+      <ImageLoader src={preview} alt="preview" thumb={getThumbURL(preview)} className='document-card__preview' style={{borderRadius: '5px'}} />
     </div>
   )
 }

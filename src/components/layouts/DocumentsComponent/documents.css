@@ -16,6 +16,7 @@
 .document-card {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+  overflow: hidden;
 
   width: min(800px, 80vw);
   height: min(600px, 60vw);
@@ -34,7 +35,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 5px;
 
   /* makes a triangle */
   --size: 118px;
@@ -85,5 +85,4 @@
   display: block;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
 }
