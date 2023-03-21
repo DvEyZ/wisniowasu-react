@@ -24,12 +24,6 @@ const DocumentCardComponent = ({name, link, preview, important}) => {
       </a>
 
       <ImageLoader src={preview} alt="preview" thumb={getThumbURL(preview)} className='document-card__preview'/>
-
-      {/* działa tylko na niektórych przeglądarkach, ogólnie raczej nie optymalne */}
-      {/* <iframe
-        src="https://research.google.com/pubs/archive/44678.pdf"
-        className='document-card__preview'
-      />  */}
     </div>
   )
 }
