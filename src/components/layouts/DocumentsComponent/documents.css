@@ -1,7 +1,7 @@
 .documents-container {
   display: grid;
   padding: 1.375rem;
-  gap: 2rem;
+  gap: 1.6rem;
   grid-template-columns: 1fr;
   width: min-content;
   margin-inline: auto;
