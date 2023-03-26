@@ -1,7 +1,7 @@
 .documents-container {
   display: grid;
   padding: 1.375rem;
-  gap: 1.6rem;
+  gap: 2rem;
   grid-template-columns: 1fr;
   width: min-content;
   margin-inline: auto;
@@ -75,7 +75,7 @@
 }
 
 .document-card__title h2 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #de1444;
 }
