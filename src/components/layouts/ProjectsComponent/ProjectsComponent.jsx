@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { ProjectsTimelineCardComponent } from './ProjectsTimelineCardComponent'
 import Loading from '../../reusables/LoadingComponent/Loading';
 import Error from '../../reusables/ErrorComponent/Error';
@@ -35,7 +35,7 @@ export class ProjectsComponent extends React.Component
                                 img: `${cms}${v.image.data.attributes.url}`,
                                 text: v.text,
                             }
-                        }),
+                        }).reverse(),
                         // loaded: true,
                         error: false
                     });
